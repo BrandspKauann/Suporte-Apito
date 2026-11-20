@@ -1,0 +1,67 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useNow } from '@vueuse/core'
+import { useAuthStore } from '@/stores/auth'
+import { useConfigStore } from '@/stores/config'
+import { useColorScheme } from '@/composables/useColorScheme'
+
+import LogoFull from '@/assets/logo.svg?component'
+import LogoFullPride from '@/assets/logo.svg?component'
+import {MILLISECONDS_A_HOUR} from '@/constants/date'
+
+const now = useNow({
+	interval: MILLISECONDS_A_HOUR,
+})
+
+const authStore = useAuthStore()
+const configStore = useConfigStore()
+const { isDark } = useColorScheme()
+
+const Logo = computed(() => configStore.allow_icon_changes
+	&& authStore.settings.frontend_settings.allow_icon_changes
+	&& now.value.getMonth() === 5
+	? LogoFullPride
+	: LogoFull)
+
+const CustomLogo = computed(() => {
+	const lightLogo = window.CUSTOM_LOGO_URL
+	const darkLogo = window.CUSTOM_LOGO_URL_DARK
+
+	if (!lightLogo && !darkLogo) return ''
+	if (!darkLogo) return lightLogo
+	if (!lightLogo) return darkLogo
+
+	return isDark.value ? darkLogo : lightLogo
+})
+</script>
+
+<template>
+	<div class="apito-brand">
+		<Logo
+			v-if="!CustomLogo"
+			alt="Apito de Mestre"
+			class="logo"
+		/>
+		<img
+			v-else
+			:src="CustomLogo"
+			alt="Apito de Mestre"
+			class="logo"
+		>
+		<strong v-if="!CustomLogo">Apito de Mestre</strong>
+	</div>
+</template>
+
+<style lang="scss" scoped>
+.apito-brand {
+	display: flex;
+	align-items: center;
+	gap: .75rem;
+}
+
+.logo {
+	color: var(--logo-text-color);
+	max-inline-size: 168px;
+	max-block-size: 48px;
+}
+</style>

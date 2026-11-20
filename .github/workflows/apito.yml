@@ -1,0 +1,39 @@
+name: Apito de Mestre
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  api-runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test deploy/vercel-api/config.test.mjs
+  signup-api:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - run: go install github.com/magefile/mage@v1.15.0
+      - run: mage test:hirayama
+  frontend:
+    runs-on: ubuntu-latest
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: 'true'
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --global pnpm@12.16.1
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec vitest run src/views/user/PasswordReset.test.ts
+      - run: pnpm run build

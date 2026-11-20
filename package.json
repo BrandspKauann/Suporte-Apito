@@ -1,0 +1,11 @@
+{
+  "name": "apito-de-mestre",
+  "private": true,
+  "version": "2.8.0-apito.0",
+  "engines": {"node": "24.x"},
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "preview": "npm --prefix frontend run preview"
+  }
+}

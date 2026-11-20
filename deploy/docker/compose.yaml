@@ -1,0 +1,79 @@
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: vikunja
+      POSTGRES_USER: vikunja
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Configure POSTGRES_PASSWORD no .env}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U vikunja -d vikunja']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  # API personalizada desta instalação; a interface pode ser publicada na Vercel.
+  api:
+    build:
+      context: ../..
+      dockerfile: deploy/vercel-api/Dockerfile
+    entrypoint: /usr/local/bin/vikunja
+    command: [web]
+    restart: unless-stopped
+    environment:
+      VIKUNJA_SERVICE_PUBLICURL: ${FRONTEND_ORIGIN:?Configure a origem HTTPS da Vercel}/
+      VIKUNJA_SERVICE_SECRET: ${VIKUNJA_SERVICE_SECRET:?Configure uma chave aleatória longa}
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: 'true'
+      VIKUNJA_SERVICE_ROOTPATH: /tmp/apito
+      VIKUNJA_SERVICE_INTERFACE: ':3456'
+      APITO_SIGNUP_ENABLED: 'true'
+      APITO_SUPPORT_USER_ID: '1'
+      APITO_SIGNUP_CODE_SHA256: ${APITO_SIGNUP_CODE_SHA256:?Configure o hash do seu código de proteção}
+      VIKUNJA_DATABASE_TYPE: postgres
+      VIKUNJA_DATABASE_HOST: db
+      VIKUNJA_DATABASE_DATABASE: vikunja
+      VIKUNJA_DATABASE_USER: vikunja
+      VIKUNJA_DATABASE_PASSWORD: ${POSTGRES_PASSWORD}
+      VIKUNJA_DATABASE_SCHEMA: public
+      VIKUNJA_DATABASE_SSLMODE: disable
+      VIKUNJA_FILES_BASEPATH: /data/files
+      VIKUNJA_CORS_ENABLE: 'true'
+      VIKUNJA_CORS_ORIGINS: ${FRONTEND_ORIGIN:?Configure a origem HTTPS da Vercel}
+    volumes:
+      - files:/data/files
+    depends_on:
+      db:
+        condition: service_healthy
+      init-files:
+        condition: service_completed_successfully
+
+  init-files:
+    image: alpine:3.22
+    user: '0:0'
+    command: ['chown', '1000:1000', '/files']
+    volumes:
+      - files:/files
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+    environment:
+      API_DOMAIN: ${API_DOMAIN:?Configure API_DOMAIN com o domínio público da API}
+      ACME_EMAIL: ${ACME_EMAIL:?Configure um e-mail para o certificado}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:
+  files:
+  caddy_data:
+  caddy_config:

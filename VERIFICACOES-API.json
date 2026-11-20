@@ -1,0 +1,277 @@
+{
+  "frontend_tests": 129,
+  "data": "2026-11-20",
+  "sqlite": {
+    "passed": true,
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/info",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/register",
+        "status": 403
+      },
+      {
+        "method": "POST",
+        "path": "/register",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "path": "/login",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/user",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/projects",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/projects/2/tasks",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/projects/2",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/projects/2/views/12/buckets",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/projects/2/tasks",
+        "status": 201
+      },
+      {
+        "method": "PATCH",
+        "path": "/tasks/1",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/tasks/1",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/tasks/1/comments",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "path": "/tasks/1/assignees",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "path": "/labels",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "path": "/tasks/1/labels",
+        "status": 201
+      },
+      {
+        "method": "PUT",
+        "path": "/projects/2/views/12/buckets/9/tasks",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/tasks/1",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/tasks/1",
+        "status": 401
+      },
+      {
+        "method": "POST",
+        "path": "/login",
+        "status": 403
+      },
+      {
+        "method": "POST",
+        "path": "/register",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "path": "/login",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/tasks/1",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/teams",
+        "status": 200
+      },
+      {
+        "method": "PATCH",
+        "path": "/teams/1",
+        "status": 403
+      },
+      {
+        "method": "DELETE",
+        "path": "/tasks/1",
+        "status": 204
+      }
+    ]
+  },
+  "instalacao": "Apito de Mestre",
+  "runtime_config_tests": 4,
+  "postgresql17": {
+    "passed": true,
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/info",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/register",
+        "status": 403
+      },
+      {
+        "method": "POST",
+        "path": "/register",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "path": "/login",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/user",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/projects",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/projects/2/tasks",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/projects/2",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/projects/2/views/12/buckets",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/projects/2/tasks",
+        "status": 201
+      },
+      {
+        "method": "PATCH",
+        "path": "/tasks/1",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/tasks/1",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/tasks/1/comments",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "path": "/tasks/1/assignees",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "path": "/labels",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "path": "/tasks/1/labels",
+        "status": 201
+      },
+      {
+        "method": "PUT",
+        "path": "/projects/2/views/12/buckets/9/tasks",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/tasks/1",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/tasks/1",
+        "status": 401
+      },
+      {
+        "method": "POST",
+        "path": "/login",
+        "status": 403
+      },
+      {
+        "method": "POST",
+        "path": "/register",
+        "status": 201
+      },
+      {
+        "method": "POST",
+        "path": "/login",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/tasks/1",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/teams",
+        "status": 200
+      },
+      {
+        "method": "PATCH",
+        "path": "/teams/1",
+        "status": 403
+      },
+      {
+        "method": "DELETE",
+        "path": "/tasks/1",
+        "status": 204
+      }
+    ]
+  },
+  "ambiente": "local e descartável"
+}
