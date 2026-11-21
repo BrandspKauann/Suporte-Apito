@@ -12,6 +12,7 @@ RUN apk add --no-cache ca-certificates tzdata libgcc libstdc++
 COPY --from=builder /out/vikunja /usr/local/bin/vikunja
 WORKDIR /opt/apito
 COPY deploy/vercel-api/config.mjs deploy/vercel-api/start.mjs ./
+COPY deploy/vercel-api/supabase-ca.crt ./supabase-ca.crt
 COPY LICENSE ./LICENSE
 LABEL org.opencontainers.image.licenses="AGPL-3.0-or-later"
 ENV NODE_ENV=production
