@@ -1,4 +1,9 @@
 {
+	"deploymentError": {
+		"failed": "Não foi possível executar a API no servidor. Tente novamente. Se o erro continuar, informe o identificador abaixo ao suporte.",
+		"timeout": "O servidor demorou demais para responder. Tente novamente. Se o erro continuar, informe o identificador abaixo ao suporte.",
+		"reference": "Identificador da falha: {reference}"
+	},
 	"404": {
 		"title": "Não encontrado",
 		"text": "A página que você solicitou não existe."

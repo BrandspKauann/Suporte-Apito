@@ -2,6 +2,7 @@ import {describe, it, expect, vi} from 'vitest'
 import {notify} from '@kyvg/vue3-notification'
 
 import {ApiError} from '@/client/problem'
+import {i18n} from '@/i18n'
 import {error, getErrorText, success} from './index'
 
 vi.mock('@kyvg/vue3-notification', () => ({notify: vi.fn()}))
@@ -50,6 +51,27 @@ describe('error', () => {
 })
 
 describe('getErrorText', () => {
+	function portugueseError(reason: unknown) {
+		const previous = i18n.global.locale.value
+		i18n.global.locale.value = 'pt-BR'
+		try {
+			return getErrorText(reason)
+		} finally {
+			i18n.global.locale.value = previous
+		}
+	}
+
+	it('translates the hosting failure and preserves only its reference', () => {
+		const text = portugueseError('A server error has occurred FUNCTION_INVOCATION_FAILED gru1::tf7rf-1795291693450-7641975a3937')
+		expect(text).toContain('Não foi possível executar a API no servidor')
+		expect(text).toContain('Identificador da falha: gru1::tf7rf-1795291693450-7641975a3937')
+		expect(text).not.toContain('A server error has occurred')
+	})
+
+	it('translates a timeout returned as problem detail', () => {
+		expect(portugueseError({detail: 'FUNCTION_INVOCATION_TIMEOUT'})).toContain('O servidor demorou demais para responder')
+	})
+
 	it.each([null, undefined])('handles an empty rejection reason (%s)', reason => {
 		expect(getErrorText(reason)).toBe('')
 	})

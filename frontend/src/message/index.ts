@@ -26,6 +26,15 @@ export function getErrorText(reason: unknown): string {
 	const cause = errorRecord(original.cause)
 	const causeMessage = cause.detail ?? cause.message
 	if (typeof causeMessage === 'string') message += ' ' + causeMessage
+	const providerCode = [message, data.code].find(value => typeof value === 'string' && /\bFUNCTION_INVOCATION_(FAILED|TIMEOUT)\b/.test(value))
+	if (typeof providerCode === 'string') {
+		const key = providerCode.includes('FUNCTION_INVOCATION_TIMEOUT') ? 'timeout' : 'failed'
+		const reference = message.match(/\b[a-z]{3}\d::[a-zA-Z0-9:-]{1,160}\b/)?.[0]
+		return i18n.global.t(`deploymentError.${key}`) + (reference ? ` ${i18n.global.t('deploymentError.reference', {reference})}` : '')
+	}
+	if (/^\s*(?:A server error has occurred|Server error occurred)\.?\s*$/i.test(message)) {
+		return i18n.global.t('deploymentError.failed')
+	}
 	return message
 }
 

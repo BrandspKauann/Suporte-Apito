@@ -1,4 +1,9 @@
 {
+  "deploymentError": {
+    "failed": "The server could not run the API. Try again. If the error persists, share the reference below with support.",
+    "timeout": "The server took too long to respond. Try again. If the error persists, share the reference below with support.",
+    "reference": "Failure reference: {reference}"
+  },
   "home": {
     "welcomeNight": "Good Night {username}!",
     "welcomeNightOwl": "Hello, night owl {username}",
