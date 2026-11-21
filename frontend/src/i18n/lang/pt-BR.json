@@ -304,6 +304,7 @@
 			"addTaskPlaceholder": "Digite o título da tarefa…",
 			"addTask": "Adicionar uma tarefa",
 			"addAnotherTask": "Adicionar outra tarefa",
+			"addBucket": "Novo",
 			"addBucketPlaceholder": "Digite o título do novo bucket…",
 			"addBucket": "Novo",
 			"deleteHeaderBucket": "Excluir o bucket",
