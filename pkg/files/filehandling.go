@@ -82,7 +82,7 @@ func initS3FileHandler(ctx context.Context) error {
 	// Create AWS SDK v2 config
 	cfg, err := awsconfig.LoadDefaultConfig(ctx,
 		awsconfig.WithRegion(region),
-		awsconfig.WithCredentialsProvider(credentials.NewStaticCredentialsProvider(accessKey, secretKey, os.Getenv("AWS_SESSION_TOKEN"))),
+		awsconfig.WithCredentialsProvider(credentials.NewStaticCredentialsProvider(accessKey, secretKey, os.Getenv("APITO_S3_SESSION_TOKEN"))),
 	)
 	if err != nil {
 		return fmt.Errorf("failed to load AWS config: %w", err)
