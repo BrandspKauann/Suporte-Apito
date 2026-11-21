@@ -16,6 +16,7 @@ dist/
 cover.*
 /vikunja
 Test_*
+!pkg/db/test_fixtures.go
 bin/
 secrets
 *.deb
