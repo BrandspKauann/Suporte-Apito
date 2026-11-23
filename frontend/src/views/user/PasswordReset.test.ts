@@ -1,10 +1,9 @@
 import {QueryClient, VueQueryPlugin} from '@tanstack/vue-query'
 import {beforeEach, describe, it, expect, vi} from 'vitest'
 import {mount, flushPromises} from '@vue/test-utils'
-import {createI18n} from 'vue-i18n'
 import PasswordReset from './PasswordReset.vue'
 import Password from '@/components/input/Password.vue'
-import en from '@/i18n/lang/en.json'
+import {i18n} from '@/i18n'
 
 const {resetPassword, mockRoute} = vi.hoisted(() => ({
 	resetPassword: vi.fn(),
@@ -16,8 +15,6 @@ vi.mock('@/client/generated', () => ({authPasswordReset: resetPassword}))
 vi.mock('vue-router', () => ({
 	useRoute: () => mockRoute,
 }))
-
-const i18n = createI18n({legacy: false, locale: 'en', messages: {en}})
 
 function mountPasswordReset(errors: unknown[] = [], realPassword = false) {
 	return mount(PasswordReset, {
@@ -66,7 +63,8 @@ describe('PasswordReset', () => {
 
 		expect(errors).toEqual([])
 		expect(resetPassword).toHaveBeenCalledWith({body: {new_password: 'new-password', token: 'token'}})
-		expect(wrapper.text()).toContain('Failed to fetch')
+		expect(wrapper.text()).toContain(i18n.global.t('error.network'))
+		expect(wrapper.text()).not.toContain('Failed to fetch')
 	})
 })
 
