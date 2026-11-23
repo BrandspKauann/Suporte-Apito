@@ -5,6 +5,7 @@
 		:title="$t('keyboardShortcuts.toggleMenu')"
 		:aria-label="menuActive ? $t('misc.hideMenu') : $t('misc.showMenu')"
 		:aria-expanded="menuActive"
+		aria-controls="main-navigation"
 		@click="baseStore.toggleMenu()"
 		@shortkey="() => baseStore.toggleMenu()"
 	/>

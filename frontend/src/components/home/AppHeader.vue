@@ -1,7 +1,7 @@
 <template>
 	<header
 		:class="{ 'has-background': background, 'menu-active': menuActive }"
-		aria-label="main navigation"
+		:aria-label="$t('navigation.main')"
 		class="navbar d-print-none"
 	>
 		<RouterLink
@@ -179,7 +179,7 @@ const adminPanelEnabled = computed(() => configStore.isProFeatureEnabled(PRO_FEA
 $user-dropdown-width-mobile: 5rem;
 
 .navbar {
-	--navbar-button-min-width: 40px;
+	--navbar-button-min-width: 44px;
 	--navbar-gap-width: 1rem;
 	--navbar-icon-size: 1.25rem;
 
@@ -195,6 +195,11 @@ $user-dropdown-width-mobile: 5rem;
 	min-block-size: $navbar-height;
 
 	background: var(--site-background);
+	box-shadow: 0 1px 0 hsla(var(--grey-300-hsl), .5);
+
+	@media screen and (max-width: $tablet) {
+		--navbar-gap-width: .25rem;
+	}
 
 	@media screen and (min-width: $tablet) {
 		padding-inline-start: 2rem;
@@ -212,6 +217,8 @@ $user-dropdown-width-mobile: 5rem;
 		.trigger-button {
 			color: var(--grey-400);
 			font-size: var(--navbar-icon-size);
+			min-inline-size: var(--navbar-button-min-width);
+			min-block-size: 44px;
 		}
 	}
 }
@@ -233,7 +240,8 @@ $user-dropdown-width-mobile: 5rem;
 	flex: 0 0 auto;
 
 	@media screen and (max-width: $tablet) {
-		margin-inline-start: 1rem;
+		margin-inline-start: .5rem;
+		margin-inline-end: 0;
 	}
 }
 
@@ -245,6 +253,7 @@ $user-dropdown-width-mobile: 5rem;
 	// this makes the truncated text of the project title work
 	// inside the flexbox parent
 	min-inline-size: 0;
+	flex: 1 1 auto;
 
 	@media screen and (min-width: $tablet) {
 		padding-inline: var(--navbar-gap-width);
@@ -265,6 +274,7 @@ $user-dropdown-width-mobile: 5rem;
 
 .project-title-dropdown {
 	align-self: stretch;
+	flex-shrink: 0;
 
 	.project-title-button {
 		flex-grow: 1;
@@ -273,6 +283,7 @@ $user-dropdown-width-mobile: 5rem;
 
 .project-title-button {
 	align-self: stretch;
+	flex-shrink: 0;
 	min-inline-size: var(--navbar-button-min-width);
 	display: flex;
 	place-items: center;
@@ -293,6 +304,7 @@ $user-dropdown-width-mobile: 5rem;
 
 .username-dropdown-trigger {
 	padding-inline-start: .75rem;
+	min-inline-size: var(--navbar-button-min-width);
 	display: inline-flex;
 	align-items: center;
 	font-size: .85rem;
@@ -308,7 +320,17 @@ $user-dropdown-width-mobile: 5rem;
 	}
 
 	@media screen and (max-width: $tablet) {
-		padding-inline-end: .5rem;
+		padding-inline: .25rem;
+		gap: 0;
+
+		:deep(.avatar) {
+			inline-size: 32px;
+			block-size: 32px;
+		}
+
+		.dropdown-icon {
+			display: none;
+		}
 	}
 
 	@media screen and (min-width: $tablet) {
@@ -318,6 +340,10 @@ $user-dropdown-width-mobile: 5rem;
 
 .username {
 	font-family: $vikunja-font;
+	max-inline-size: clamp(4rem, 10vw, 12rem);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 
 	@media screen and (max-width: $tablet) {
 		display: none;

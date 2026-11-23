@@ -5,6 +5,7 @@ import {setActivePinia, createPinia} from 'pinia'
 import {useAuthStore} from './auth'
 import {shouldDropEvent} from '@/helpers/sentryFilters'
 import {getErrorText} from '@/message'
+import {i18n} from '@/i18n'
 
 const {httpGetMock, routerPushMock, getTokenMock} = vi.hoisted(() => ({
 	httpGetMock: vi.fn(),
@@ -67,13 +68,13 @@ describe('auth store refreshUserInfo failures', () => {
 		expect(shouldDropEvent(await refreshError())).toBe(true)
 	})
 
-	it('throws an error sentry reports and that shows the server message on a 5xx', async () => {
+	it('throws an error sentry reports and shows a translated message on a 5xx', async () => {
 		httpGetMock.mockRejectedValue({status: 500, detail: 'Internal server error'})
 
 		const e = await refreshError()
 
 		expect(shouldDropEvent(e)).toBe(false)
-		expect(getErrorText(e)).toBe('Error while refreshing user info: Internal server error')
+		expect(getErrorText(e)).toBe(i18n.global.t('error.server'))
 	})
 
 	it.each([401, 403])('logs out on a %i', async status => {
@@ -103,18 +104,18 @@ describe('auth store refreshUserInfo failures', () => {
 	})
 
 	it.each([
-		[404, undefined],
-		[412, 1017],
-		[429, undefined],
-		[503, undefined],
-	])('keeps the session and throws on a %i with code %s', async (status, code) => {
+		[404, undefined, 'error.notFound'],
+		[412, 1017, 'error.1017'],
+		[429, undefined, 'error.rateLimited'],
+		[503, undefined, 'error.unavailable'],
+	] as const)('keeps the session and throws on a %i with code %s', async (status, code, messageKey) => {
 		const store = useAuthStore()
 		store.setAuthenticated(true)
 		httpGetMock.mockRejectedValue({status, code, detail: 'rejected'})
 
 		const e = await refreshError()
 
-		expect(getErrorText(e)).toBe('Error while refreshing user info: rejected')
+		expect(getErrorText(e)).toBe(i18n.global.t(messageKey))
 		expect(store.authenticated).toBe(true)
 		expect(routerPushMock).not.toHaveBeenCalled()
 	})

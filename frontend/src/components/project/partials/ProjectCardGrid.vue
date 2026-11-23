@@ -41,18 +41,15 @@ const filteredProjects = computed(() => {
 .project-grid {
 	--project-grid-item-height: 150px;
 	--project-grid-gap: 1rem;
+	--project-grid-columns: 1;
 	margin: 0; // reset li
 	list-style-type: none;
 	display: grid;
-	grid-template-columns: repeat(var(--project-grid-columns), 1fr);
+	grid-template-columns: repeat(var(--project-grid-columns), minmax(0, 1fr));
 	grid-auto-rows: var(--project-grid-item-height);
 	gap: var(--project-grid-gap);
 
-	@media screen and (min-width: $mobile) {
-		--project-grid-columns: 1;
-	}
-
-	@media screen and (min-width: $mobile) and (max-width: $tablet) {
+	@media screen and (width >= 480px) and (max-width: $tablet) {
 		--project-grid-columns: 2;
 	}
 
@@ -75,6 +72,7 @@ const filteredProjects = computed(() => {
 
 .project-grid-item {
 	display: grid;
+	min-inline-size: 0;
 	margin-block-start: 0; // remove padding coming form .content li + li
 }
 </style>

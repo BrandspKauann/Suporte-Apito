@@ -11,6 +11,7 @@
 		]"
 		:disabled="disabled"
 		:aria-disabled="loading || undefined"
+		:aria-busy="loading || undefined"
 		:style="{
 			'--button-white-space': wrap ? 'break-spaces' : 'nowrap',
 		}"
@@ -87,7 +88,7 @@ const showLoading = useDelayedLoading(() => props.loading)
 	white-space: var(--button-white-space);
 
 	// Custom styles
-	transition: all $transition;
+	transition: background-color $transition, color $transition, box-shadow $transition;
 	border: 0;
 	text-transform: uppercase;
 	font-size: 0.85rem;
@@ -95,9 +96,21 @@ const showLoading = useDelayedLoading(() => props.loading)
 	block-size: auto;
 	min-block-size: $button-height;
 	box-shadow: var(--shadow-sm);
-	line-height: 1;
+	line-height: 1.25;
+	max-inline-size: 100%;
+	padding-block: .5rem;
 	padding-inline: .5rem;
 	gap: .25rem;
+
+	> span {
+		min-inline-size: 0;
+		overflow-wrap: anywhere;
+	}
+
+	@media (pointer: coarse) {
+		min-block-size: 44px;
+		padding-inline: .75rem;
+	}
 
 	// Default/Primary variant colors
 	background-color: var(--primary);

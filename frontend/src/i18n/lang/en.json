@@ -89,6 +89,7 @@
       "openIdTotpRequired": "Your account requires two-factor authentication. Enter your TOTP code and sign in again.",
       "openIdTotpSubmit": "Continue",
       "oauthMissingParams": "Missing required OAuth parameters: {params}",
+      "oauthIncompleteResponse": "The sign-in response was incomplete. Please try again.",
       "oauthRedirectedToApp": "You have been redirected to the app. You can close this tab now.",
       "desktopTryDemo": "Try the Demo",
       "desktopCustomServer": "Custom Server URL",
@@ -893,9 +894,11 @@
     "home": "Apito de Mestre home",
     "toggleChildProjects": "Toggle sub-projects",
     "main": "Main navigation",
+    "breadcrumb": "Project path",
     "savedFilters": "Saved filters"
   },
   "misc": {
+    "resetFilters": "Reset filters",
     "loading": "Loading…",
     "save": "Save",
     "delete": "Delete",
@@ -1236,6 +1239,7 @@
       "createdBy": "created {0} by {1}",
       "downloadTooltip": "Download this attachment",
       "upload": "Upload attachment",
+      "uploadFailed": "The attachment could not be uploaded. Please try again.",
       "drop": "Drop files here to upload",
       "delete": "Delete attachment",
       "deleteTooltip": "Delete this attachment",
@@ -1586,6 +1590,14 @@
     "add": "Add your reaction"
   },
   "error": {
+    "generic": "Could not complete this action. Please try again.",
+    "network": "Could not connect to the server. Check your connection and try again.",
+    "unauthorized": "You need to sign in to continue.",
+    "forbidden": "You do not have permission to perform this action.",
+    "notFound": "The requested item could not be found.",
+    "rateLimited": "Too many requests. Please wait a moment and try again.",
+    "server": "The server could not complete this action. Please try again later.",
+    "unavailable": "The service is temporarily unavailable. Please try again later.",
     "error": "Error",
     "success": "Success",
     "0001": "You're not allowed to do that.",

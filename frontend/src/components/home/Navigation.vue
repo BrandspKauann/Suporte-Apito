@@ -1,8 +1,11 @@
 <template>
 	<aside
+		id="main-navigation"
 		:class="{'is-active': baseStore.menuActive, 'is-resizing': isResizing}"
 		class="menu-container"
 		:style="{'--sidebar-width': sidebarWidthStyle}"
+		:inert="!baseStore.menuActive"
+		@keydown.esc="baseStore.setMenuActive(false)"
 	>
 		<nav
 			class="menu top-menu"
@@ -205,6 +208,8 @@ const savedFilterProjects = computed(() => projectList.savedFilterProjects)
 	transform: translateX(-100%);
 	inline-size: var(--sidebar-width);
 	overflow-y: auto;
+	overscroll-behavior-block: contain;
+	scrollbar-gutter: stable;
 
 	[dir="rtl"] & {
 		transform: translateX(100%);
@@ -212,7 +217,9 @@ const savedFilterProjects = computed(() => projectList.savedFilterProjects)
 
 	@media screen and (max-width: $tablet) {
 		inset-block-start: 0;
-		inline-size: 70vw;
+		inline-size: min(20rem, calc(100vw - 4rem));
+		padding-block-start: max(1rem, env(safe-area-inset-top));
+		padding-block-end: max(1rem, env(safe-area-inset-bottom));
 		z-index: 20;
 	}
 

@@ -33,6 +33,16 @@ describe('success', () => {
 		success({message: 'Saved'})
 		expect(notify).toHaveBeenLastCalledWith(expect.objectContaining({duration: undefined}))
 	})
+
+	it.each([null, undefined, '', '   '])('preserves an intentionally empty success body (%s)', reason => {
+		success(reason)
+		expect(notify).toHaveBeenLastCalledWith(expect.objectContaining({text: ''}))
+	})
+
+	it('preserves a short uppercase success message', () => {
+		success({message: 'OK'})
+		expect(notify).toHaveBeenLastCalledWith(expect.objectContaining({text: 'OK'}))
+	})
 })
 
 describe('error', () => {
@@ -47,6 +57,11 @@ describe('error', () => {
 			callback: () => {},
 		}])
 		expect(notify).toHaveBeenLastCalledWith(expect.objectContaining({ignoreDuplicates: false}))
+	})
+
+	it.each([null, undefined, '', '   '])('always supplies readable text for an empty error (%s)', reason => {
+		error(reason)
+		expect(notify).toHaveBeenLastCalledWith(expect.objectContaining({text: i18n.global.t('error.generic')}))
 	})
 })
 
@@ -119,7 +134,7 @@ describe('getErrorText', () => {
 		expect(text).toBe('some backend message')
 	})
 
-	it('appends the server message of a request error given as cause', () => {
+	it('translates a server failure given as cause without displaying its internal detail', () => {
 		const text = getErrorText(Object.assign(new Error('Error while refreshing user info:'), {
 			cause: {
 				status: 500,
@@ -128,7 +143,7 @@ describe('getErrorText', () => {
 			},
 		}))
 
-		expect(text).toBe('Error while refreshing user info: Internal server error')
+		expect(text).toBe(i18n.global.t('error.server'))
 	})
 
 	it('reads a direct problem response', () => {
@@ -148,6 +163,61 @@ describe('getErrorText', () => {
 	})
 
 	it('reads the detail of an ApiError without a code', () => {
-		expect(getErrorText(new ApiError({status: 502, detail: 'Bad Gateway'}))).toBe('Bad Gateway')
+		expect(getErrorText(new ApiError({status: 502, detail: 'Bad Gateway'}))).toBe(i18n.global.t('error.unavailable'))
+	})
+
+	it('translates a message already supplied as a translation key', () => {
+		expect(getErrorText({message: 'task.attachment.audioError'})).toBe(i18n.global.t('task.attachment.audioError'))
+	})
+
+	it('recognizes permission error code 1 despite the zero-padded translation key', () => {
+		expect(getErrorText({code: 1})).toBe(i18n.global.t('error.0001'))
+	})
+
+	it.each([
+		{},
+		{code: 99999},
+		{message: 'UNKNOWN_BACKEND_FAILURE'},
+		{message: 'task.missing.translation'},
+		{message: '<html><body>Bad Gateway</body></html>'},
+		{message: 'Cannot read properties of undefined (reading title)'},
+		{message: 'Authorization: Bearer private-example-token'},
+		{message: 'password=private-example-password'},
+		{message: 'postgres://admin:private-example-password@db.example.com/app'},
+	])('uses a generic message instead of exposing technical or sensitive detail (%j)', reason => {
+		expect(getErrorText(reason)).toBe(i18n.global.t('error.generic'))
+	})
+
+	it.each(['Failed to fetch', 'NetworkError when attempting to fetch resource.', 'Network request failed', 'Load failed'])('translates the network failure %s', message => {
+		expect(getErrorText(new TypeError(message))).toBe(i18n.global.t('error.network'))
+	})
+
+	it.each([
+		[401, 'unauthorized'],
+		[403, 'forbidden'],
+		[404, 'notFound'],
+		[429, 'rateLimited'],
+		[500, 'server'],
+		[502, 'unavailable'],
+		[503, 'unavailable'],
+		[504, 'unavailable'],
+	])('translates a generic HTTP %i response', (status, key) => {
+		expect(getErrorText({status, detail: `HTTP ${status}`})).toBe(i18n.global.t(`error.${key}`))
+	})
+
+	it('keeps a known business error more specific than the HTTP status', () => {
+		expect(getErrorText({status: 403, code: 3004})).toBe(i18n.global.t('error.3004'))
+	})
+
+	it('preserves a safe and specific validation detail', () => {
+		expect(getErrorText({status: 400, detail: 'The task title must contain at least 3 characters.'})).toBe('The task title must contain at least 3 characters.')
+	})
+
+	it('does not append raw server text to a translated filter error', () => {
+		expect(getErrorText({code: 4016, message: 'SQL query failed: password=private-example-password'})).toBe(i18n.global.t('error.4016'))
+	})
+
+	it('does not interpolate sensitive server parameters into a translated error', () => {
+		expect(getErrorText({code: 14002, i18n_params: {permission: 'token=private-example-token', group: 'tasks'}})).not.toContain('private-example-token')
 	})
 })

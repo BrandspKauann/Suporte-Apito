@@ -35,5 +35,5 @@ jobs:
           node-version: '24'
       - run: npm install --global pnpm@12.16.1
       - run: pnpm install --frozen-lockfile
-      - run: pnpm exec vitest run src/views/user/PasswordReset.test.ts
+      - run: pnpm exec vitest run src/views/user/PasswordReset.test.ts src/i18n/coverage.test.ts src/i18n/index.test.ts src/message/index.test.ts src/stores/auth.refreshUserInfo.test.ts src/components/input/Button.test.ts src/components/project/ProjectWrapper.test.ts src/components/project/views/ProjectKanban.test.ts
       - run: pnpm run build

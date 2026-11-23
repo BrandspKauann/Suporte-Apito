@@ -1,1 +1,203 @@
-{}
+{
+    "notifications": {
+        "greeting": "Olá, %[1]s,",
+        "email_confirm": {
+            "subject": "%[1]s, confirme seu endereço de e-mail no Apito de Mestre",
+            "subject_new": "%[1]s + Apito de Mestre = <3",
+            "welcome": "Boas-vindas ao Apito de Mestre!",
+            "confirm": "Para confirmar seu endereço de e-mail, clique no link abaixo:"
+        },
+        "email_change": {
+            "subject": "Foi solicitada uma alteração de e-mail para sua conta do Apito de Mestre",
+            "requested": "Alguém solicitou a alteração do e-mail da sua conta para %[1]s. O endereço atual continuará ativo até a confirmação do novo endereço.",
+            "warning": "Se não foi você, altere sua senha imediatamente e cancele a alteração pendente nas configurações da conta."
+        },
+        "identity": {
+            "linked": {
+                "subject": "%[1]s foi vinculado à sua conta do Apito de Mestre",
+                "message": "Sua conta de %[1]s foi vinculada à sua conta do Apito de Mestre em %[2]s. Você já pode entrar com ela.",
+                "warning": "Se não foi você, altere sua senha imediatamente e desvincule a conta nas configurações."
+            }
+        },
+        "password": {
+            "changed": {
+                "subject": "Sua senha do Apito de Mestre foi alterada",
+                "success": "A senha da sua conta foi alterada.",
+                "warning": "Se não foi você, sua conta pode ter sido comprometida. Nesse caso, entre em contato com o administrador do servidor."
+            },
+            "reset": {
+                "subject": "Redefina sua senha do Apito de Mestre",
+                "instructions": "Para redefinir sua senha, clique no link abaixo:",
+                "valid_duration": "Este link será válido por 24 horas."
+            }
+        },
+        "totp": {
+            "invalid": {
+                "subject": "Houve uma tentativa de acesso à sua conta do Apito de Mestre",
+                "message": "Alguém tentou entrar na sua conta com o nome de usuário e a senha corretos, mas informou um código TOTP inválido.",
+                "warning": "**Se não foi você, outra pessoa sabe sua senha. Defina uma nova senha imediatamente!**"
+            },
+            "account_locked": {
+                "subject": "Sua conta do Apito de Mestre foi desativada",
+                "message": "Alguém tentou entrar com suas credenciais, mas não informou um código TOTP válido.",
+                "disabled": "Após 10 tentativas sem sucesso, desativamos sua conta e redefinimos sua senha. Para criar uma nova senha, siga as instruções do e-mail de redefinição que acabamos de enviar.",
+                "reset_instructions": "Se você não recebeu o e-mail com as instruções, solicite outro em [%[1]s](%[2]s)."
+            }
+        },
+        "login": {
+            "failed": {
+                "subject": "Houve uma tentativa de acesso à sua conta do Apito de Mestre com uma senha incorreta",
+                "message": "Alguém tentou entrar na sua conta com uma senha incorreta três vezes seguidas.",
+                "warning": "Se não foi você, outra pessoa pode estar tentando acessar sua conta.",
+                "enhance_security": "Para aumentar a segurança da sua conta, defina uma senha mais forte ou ative a autenticação TOTP nas configurações:"
+            },
+            "account_locked": {
+                "message": "Alguém tentou entrar na sua conta com uma senha incorreta muitas vezes seguidas."
+            }
+        },
+        "account": {
+            "deletion": {
+                "confirm": {
+                    "subject": "Confirme a exclusão da sua conta do Apito de Mestre",
+                    "request": "Você solicitou a exclusão da sua conta. Para confirmar, clique no link abaixo:",
+                    "valid_duration": "Este link será válido por 24 horas.",
+                    "schedule_info": "Após a confirmação, agendaremos a exclusão da conta para daqui a três dias e enviaremos outro e-mail antes disso.",
+                    "consequences": "Se você prosseguir, removeremos todos os projetos e tarefas que criou. A propriedade do conteúdo compartilhado com outros usuários ou equipes será transferida para eles.",
+                    "changed_mind": "Se você não solicitou a exclusão ou mudou de ideia, basta ignorar este e-mail."
+                },
+                "scheduled": {
+                    "subject_days": "Sua conta do Apito de Mestre será excluída em %[1]s dias",
+                    "subject_tomorrow": "Sua conta do Apito de Mestre será excluída amanhã",
+                    "request_reminder": "Você solicitou recentemente a exclusão da sua conta do Apito de Mestre.",
+                    "deletion_time_days": "Excluiremos sua conta em %[1]s dias.",
+                    "deletion_time_tomorrow": "Excluiremos sua conta amanhã.",
+                    "changed_mind": "Se mudou de ideia, clique no link abaixo para cancelar a exclusão e siga as instruções:"
+                },
+                "completed": {
+                    "subject": "Sua conta do Apito de Mestre foi excluída",
+                    "confirmation": "Conforme solicitado, excluímos sua conta do Apito de Mestre.",
+                    "permanent": "Esta exclusão é permanente. Se você não fez uma cópia de segurança e precisa recuperar seus dados, fale com o administrador."
+                }
+            }
+        },
+        "task": {
+            "reminder": {
+                "subject": "Lembrete de \"%[1]s\" (%[2]s)",
+                "message": "Este é um lembrete da tarefa \"%[1]s\" (%[2]s)."
+            },
+            "comment": {
+                "subject": "Re: %[1]s (%[2]s)",
+                "mentioned_subject": "%[1]s mencionou você em um comentário em \"%[2]s\" (%[3]s)"
+            },
+            "assigned": {
+                "subject_to_assignee": "Você foi atribuído à tarefa \"%[1]s\" (%[2]s)",
+                "message_to_assignee": "%[1]s atribuiu a tarefa \"%[2]s\" a você.",
+                "subject_to_others": "A tarefa \"%[1]s\" (%[2]s) foi atribuída a %[3]s",
+                "message_to_others": "%[1]s atribuiu esta tarefa a %[2]s.",
+                "subject_to_others_self": "A tarefa \"%[1]s\" (%[2]s) foi atribuída por %[3]s a si próprio",
+                "message_to_others_self": "%[1]s atribuiu esta tarefa a si próprio."
+            },
+            "deleted": {
+                "subject": "A tarefa \"%[1]s\" (%[2]s) foi excluída",
+                "message": "%[1]s excluiu a tarefa \"%[2]s\" (%[3]s)"
+            },
+            "created": {
+                "subject": "A tarefa \"%[1]s\" (%[2]s) foi criada",
+                "message": "%[1]s criou a tarefa \"%[2]s\" (%[3]s)"
+            },
+            "mentioned": {
+                "subject_new": "%[1]s mencionou você em uma nova tarefa: \"%[2]s\" (%[3]s)",
+                "subject": "%[1]s mencionou você na tarefa \"%[2]s\" (%[3]s)"
+            },
+            "overdue": {
+                "subject": "A tarefa \"%[1]s\" (%[2]s) está atrasada",
+                "message": "Este é um lembrete da tarefa \"%[1]s\" (%[2]s), que está atrasada %[3]s e ainda não foi concluída.",
+                "multiple_subject": "Suas tarefas atrasadas",
+                "multiple_message": "Você tem tarefas atrasadas:",
+                "assigned_heading": "Atribuídas a você",
+                "followed_heading": "Tarefas que você acompanha",
+                "overdue_since": "desde %[1]s",
+                "overdue_now": "agora",
+                "overdue": "atrasada %[1]s"
+            }
+        },
+        "project": {
+            "created": "%[1]s criou o projeto \"%[2]s\""
+        },
+        "team": {
+            "member_added": {
+                "subject": "%[1]s adicionou você à equipe \"%[2]s\" no Apito de Mestre",
+                "message": "%[1]s acabou de adicionar você à equipe %[2]s no Apito de Mestre."
+            }
+        },
+        "data_export": {
+            "ready": {
+                "subject": "Sua exportação de dados do Apito de Mestre está pronta",
+                "message": "Sua exportação de dados do Apito de Mestre está pronta para baixar. Clique no botão abaixo:",
+                "availability": "O arquivo ficará disponível por 7 dias."
+            }
+        },
+        "migration": {
+            "done": {
+                "subject": "A importação de %[1]s para o Apito de Mestre foi concluída",
+                "imported": "O Apito de Mestre importou todas as listas, projetos, tarefas, notas, lembretes e arquivos de %[1]s aos quais você tem acesso.",
+                "have_fun": "Aproveite seus projetos no Apito de Mestre!"
+            },
+            "failed": {
+                "subject": "A importação de %[1]s para o Apito de Mestre falhou",
+                "message": "A importação de %[1]s não foi concluída como esperado.",
+                "retry": "Inicie a importação novamente seguindo os mesmos passos. A falha pode ter sido causada por uma instabilidade em %[1]s, e uma nova tentativa costuma resolver.",
+                "error": "Encontramos um erro durante o processo: `%[2]s`.",
+                "report": "Relate o problema [no fórum](https://community.vikunja.io/) ou pelos canais habituais para que possamos investigar a causa.",
+                "working_on_it": "Já recebemos a mensagem de erro e estamos trabalhando para resolvê-lo."
+            }
+        },
+        "api_token": {
+            "expiring": {
+                "week": {
+                    "subject": "Seu token de API \"%[1]s\" expira em breve",
+                    "message": "Seu token de API \"%[1]s\" expira em %[2]s (daqui a %[3]s). Se você ainda precisar dele, crie outro antes do vencimento."
+                },
+                "day": {
+                    "subject": "Seu token de API \"%[1]s\" expira amanhã",
+                    "message": "Seu token de API \"%[1]s\" expira em %[2]s (daqui a %[3]s). Se você ainda precisar dele, crie outro antes do vencimento."
+                },
+                "action": "Gerenciar tokens de API"
+            }
+        },
+        "common": {
+            "have_nice_day": "Tenha um ótimo dia!",
+            "copy_url": "Se o botão acima não funcionar, copie a URL abaixo e cole na barra de endereços do navegador:",
+            "actions": {
+                "open_task": "Abrir tarefa no Apito de Mestre",
+                "open_vikunja": "Abrir Apito de Mestre",
+                "open_project": "Abrir projeto",
+                "open_team": "Abrir equipe",
+                "download": "Baixar",
+                "reset_password": "Redefinir senha",
+                "go_to_settings": "Ir para as configurações",
+                "confirm_email": "Confirmar endereço de e-mail",
+                "abort_deletion": "Cancelar exclusão",
+                "confirm_account_deletion": "Confirmar a exclusão da minha conta",
+                "change_notification_settings_link": "Você pode alterar suas configurações de notificação [aqui](%[1]s).",
+                "left_comment": "%[1]s deixou um comentário",
+                "mentioned_you_comment": "%[1]s mencionou você em um comentário",
+                "mentioned_you": "%[1]s mencionou você",
+                "mentioned_you_new_task": "%[1]s mencionou você em uma nova tarefa"
+            }
+        }
+    },
+    "time": {
+        "since_years": "um ano|%[1]d anos",
+        "since_weeks": "uma semana|%[1]d semanas",
+        "since_days": "um dia|%[1]d dias",
+        "since_hours": "uma hora|%[1]d horas",
+        "since_minutes": "um minuto|%[1]d minutos",
+        "list_last_separator": "e"
+    },
+    "feeds": {
+        "notifications": {
+            "title": "Notificações do Apito de Mestre para %[1]s"
+        }
+    }
+}

@@ -113,6 +113,10 @@ const textOnlyDescription = computed(() => htmlToPreviewText(props.project.descr
 		box-shadow: var(--shadow-xs) !important;
 	}
 
+	&:focus-within {
+		box-shadow: var(--shadow-md);
+	}
+
 	> * {
 		// so the elements are on top of the background
 		position: relative;
@@ -201,6 +205,23 @@ const textOnlyDescription = computed(() => htmlToPreviewText(props.project.descr
 	}
 }
 
+@media (pointer: coarse) {
+	.project-actions {
+		inset-block-start: .5rem;
+		inset-inline-end: .5rem;
+		gap: .25rem;
+	}
+
+	.favorite,
+	.settings-dropdown :deep(.dropdown-trigger) {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-inline-size: 44px;
+		min-block-size: 44px;
+	}
+}
+
 @media(hover: hover) and (pointer: fine) {
 	.project-card .favorite,
 	.project-card .settings-dropdown {
@@ -209,6 +230,7 @@ const textOnlyDescription = computed(() => htmlToPreviewText(props.project.descr
 
 	.project-card:hover .favorite,
 	.project-card:hover .settings-dropdown,
+	.project-card:focus-within .favorite,
 	.project-card:focus-within .settings-dropdown,
 	.settings-dropdown:has([aria-expanded="true"]) {
 		opacity: 1;

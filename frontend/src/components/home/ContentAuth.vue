@@ -172,7 +172,7 @@ onBeforeUnmount(() => {
 	font-size: 2rem;
 	color: var(--grey-400);
 	line-height: 1;
-	transition: all $transition;
+	transition: color $transition;
 
 	@media screen and (min-width: $tablet) {
 		display: none;
@@ -186,6 +186,7 @@ onBeforeUnmount(() => {
 
 .app-container {
 	min-block-size: calc(100vh - 65px);
+	min-block-size: calc(100dvh - 65px);
 
 	@media screen and (max-width: $tablet) {
 		padding-block-start: $navbar-height;
@@ -196,9 +197,11 @@ onBeforeUnmount(() => {
 	--sidebar-width: #{$navbar-width};
 
 	display: flow-root;
+	min-inline-size: 0;
 	z-index: 10;
 	position: relative;
 	padding: 1.5rem 0.5rem 0;
+	padding-block-end: max(1rem, env(safe-area-inset-bottom));
 	// TODO refactor: DRY `transition-timing-function` with `./Navigation.vue`.
 	transition: margin-inline-start $transition-duration;
 
@@ -206,6 +209,7 @@ onBeforeUnmount(() => {
 		margin-inline-start: 0;
 		margin-inline-end: 0;
 		min-block-size: calc(100vh - 4rem);
+		min-block-size: calc(100dvh - 4rem);
 	}
 
 	@media screen and (min-width: $tablet) {
@@ -236,12 +240,12 @@ onBeforeUnmount(() => {
 	inset-block-end: 0;
 	inset-inline-start: 0;
 	inset-inline-end: 0;
-	block-size: 100vh;
-	inline-size: 100vw;
+	block-size: 100%;
+	inline-size: 100%;
 	background: hsla(var(--grey-100-hsl), 0.8);
 	z-index: 5;
 	opacity: 0;
-	transition: all $transition;
+	transition: opacity $transition;
 
 	@media screen and (max-width: $tablet) {
 		display: block;

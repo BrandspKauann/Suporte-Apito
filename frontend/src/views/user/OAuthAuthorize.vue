@@ -64,7 +64,7 @@ async function authorize() {
 
 		const {code, redirect_uri, state} = response.data
 
-		if (!redirect_uri || !code) throw new Error('Authorization response is incomplete')
+		if (!redirect_uri || !code) throw new Error(t('user.auth.oauthIncompleteResponse'))
 		const redirectUrl = new URL(redirect_uri)
 		redirectUrl.searchParams.set('code', code)
 		if (state) {

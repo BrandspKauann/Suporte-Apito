@@ -27,10 +27,10 @@
 						<span
 							class="label"
 							aria-hidden="true"
-						>Reset</span>
+						>{{ $t('misc.resetFilters') }}</span>
 						<div class="control">
 							<XButton @click="setDefaultFilters">
-								Reset
+								{{ $t('misc.resetFilters') }}
 							</XButton>
 						</div>
 					</div>

@@ -62,7 +62,10 @@ export function isRTLLanguage(locale: SupportedLocale): boolean {
 
 // we load all messages async
 export const i18n = createI18n({
-	fallbackLocale: DEFAULT_LANGUAGE,
+	locale: DEFAULT_LANGUAGE,
+	// Portuguese remains the default; source messages prevent untranslated keys
+	// from reaching the interface while a translation is incomplete.
+	fallbackLocale: [DEFAULT_LANGUAGE, 'en'],
 	legacy: false,
 	pluralRules: {
 		'ru-RU': (choice: number, choicesLength: number, orgRule?: PluralizationRule) => {
@@ -88,28 +91,35 @@ export const i18n = createI18n({
 	} as Record<SupportedLocale, typeof langEN>,
 })
 
-export async function setLanguage(lang: SupportedLocale): Promise<SupportedLocale | undefined> {
-	if (!lang) {
-		throw new Error('language is empty')
-	}
+let languageChange = 0
 
-	// do not change language to the current one
-	if (i18n.global.locale.value === lang) {
+export async function setLanguage(lang: SupportedLocale): Promise<SupportedLocale | undefined> {
+	if (!Object.hasOwn(SUPPORTED_LOCALES, lang)) {
+		console.warn('Unsupported interface language; keeping the current language.')
 		return
 	}
+	const change = ++languageChange
 
 	// If the language hasn't been loaded yet
 	if (!i18n.global.availableLocales.includes(lang)) {
 		try {
 			const messages = await import(`./lang/${lang}.json`)
 			i18n.global.setLocaleMessage(lang, messages.default)
-		} catch (e) {
-			console.error(`Failed to load language ${lang}:`, e)
-			return setLanguage(getBrowserLanguage())
+		} catch {
+			console.warn(`Could not load interface language ${lang}; keeping the current language.`)
+			return
 		}
 	}
 	
-	await loadDayJsLocale(lang)
+	try {
+		await loadDayJsLocale(lang)
+	} catch {
+		// A missing date-formatting chunk must not prevent the interface from starting.
+		console.warn(`Could not load date formatting for ${lang}.`)
+	}
+	if (change !== languageChange) {
+		return
+	}
 
 	i18n.global.locale.value = lang
 	document.documentElement.lang = lang

@@ -9,7 +9,7 @@
 
 .input,
 .textarea {
-  transition: all $transition;
+  transition: border-color $transition, background-color $transition, box-shadow $transition;
   box-shadow: none;
 
   &.is-active,
@@ -40,6 +40,17 @@
 .user-is-tabbing .input:focus,
 .user-is-tabbing .textarea:focus {
   @include focus-ring;
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media screen and (max-width: $tablet) and (pointer: coarse) {
+  .input:not(.title),
+  .textarea,
+  .select select {
+    font-size: 1rem;
+    min-block-size: 44px;
+  }
 }
 
 .select:after {

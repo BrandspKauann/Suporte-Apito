@@ -14,6 +14,13 @@ docker-manifest-unstable.tmpl
 *.db
 *.zip
 
+# Local credentials never belong in images or build contexts.
+.env
+.env.*
+**/.env
+**/.env.*
+!**/.env.example
+
 # Frontend
 /frontend/node_modules/
 /frontend/.direnv

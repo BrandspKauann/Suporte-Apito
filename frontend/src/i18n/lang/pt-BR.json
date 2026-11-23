@@ -13,13 +13,40 @@
 		"welcomeMorning": "Bom dia, {username}!",
 		"welcomeDay": "Olá, {username}!",
 		"welcomeEvening": "Boa noite, {username}!",
-		"lastViewed": "Visto por último",
+		"lastViewed": "Vistos recentemente",
 		"addToHomeScreen": "Adicione este aplicativo à sua tela inicial para um acesso mais rápido e melhor experiência.",
-		"goToOverview": "Ir para Visão Geral",
+		"goToOverview": "Ir para a visão geral",
 		"project": {
 			"importText": "Importe seus projetos e tarefas de outros serviços para o Apito de Mestre:",
 			"import": "Importe seus dados para o Apito de Mestre"
-		}
+		},
+		"welcomeNightOwl": "Olá, {username}! Virando a noite?",
+		"welcomeNightBurning": "Trabalhando até tarde, {username}?",
+		"welcomeNightQuiet": "Horas tranquilas, {username}",
+		"welcomeNightLate": "Já está tarde, {username}",
+		"welcomeNightMoonlit": "Planejando à luz da lua, {username}?",
+		"welcomeMorningHey": "Olá, {username}! Tudo pronto para começar?",
+		"welcomeMorningFresh": "Um novo começo, {username}",
+		"welcomeMorningCoffee": "Café e tarefas, {username}?",
+		"welcomeMorningRise": "Hora de acordar e planejar, {username}",
+		"welcomeMorningBack": "Boas-vindas de volta, {username}",
+		"welcomeMondayFresh": "Uma nova semana, {username}",
+		"welcomeTuesday": "Boa terça-feira, {username}",
+		"welcomeWednesdayMid": "Já estamos no meio da semana, {username}",
+		"welcomeThursday": "Estamos quase lá, {username}",
+		"welcomeFridayPush": "Último esforço da semana, {username}?",
+		"welcomeSaturday": "Em ritmo de fim de semana, {username}",
+		"welcomeSundaySession": "Organizando o domingo, {username}?",
+		"welcomeDayBack": "De volta às tarefas, {username}",
+		"welcomeDayFocus": "Vamos manter o foco, {username}",
+		"welcomeDayKeepGoing": "Continue assim, {username}",
+		"welcomeDayWhatsNext": "Qual é o próximo passo, {username}?",
+		"welcomeDayGood": "Boa tarde, {username}",
+		"welcomeEveningWind": "Desacelerando, {username}?",
+		"welcomeEveningReturns": "{username} está de volta",
+		"welcomeEveningWrap": "Hora de encerrar, {username}?",
+		"welcomeEveningOneMore": "Mais uma tarefa, {username}?",
+		"welcomeEveningStill": "Ainda por aqui, {username}?"
 	},
 	"demo": {
 		"title": "Esta instância está em modo de demonstração. Não use isto para dados reais!",
@@ -27,13 +54,14 @@
 		"accountWillBeDeleted": "Sua conta será excluída, incluindo todos os projetos, tarefas e anexos que você possa criar."
 	},
 	"ready": {
-		"loading": "Apito de Mestre está carregando…",
+		"loading": "O Apito de Mestre está carregando…",
 		"errorOccured": "Ocorreu um erro:",
 		"checkApiUrl": "Por favor, verifique se a URL da API está correta.",
-		"noApiUrlConfigured": "Nenhuma URL de API foi configurada. Por favor, defina uma abaixo:"
+		"noApiUrlConfigured": "Nenhuma URL de API foi configurada. Por favor, defina uma abaixo:",
+		"rateLimited": "O servidor recebeu muitas solicitações. Aguarde um momento e recarregue a página."
 	},
 	"offline": {
-		"title": "Você está offline.",
+		"title": "Você está sem conexão.",
 		"text": "Por favor, verifique sua conexão de rede e tente novamente."
 	},
 	"user": {
@@ -47,14 +75,14 @@
 			"forgotPassword": "Esqueceu sua senha?",
 			"resetPassword": "Redefinir sua senha",
 			"resetPasswordAction": "Envie-me um link para redefinir a senha",
-			"confirmEmailSuccess": "Você confirmou com sucesso seu e-mail! Você pode fazer o login agora.",
-			"totpTitle": "Código de Autenticação de Dois Fatores",
+			"confirmEmailSuccess": "Seu e-mail foi confirmado! Você já pode entrar.",
+			"totpTitle": "Código de autenticação de dois fatores",
 			"totpPlaceholder": "ex. 123456",
 			"login": "Entrar",
 			"createAccount": "Criar conta",
-			"loginWith": "Faça o login com {provider}",
+			"loginWith": "Entrar com {provider}",
 			"authenticating": "Autenticando…",
-			"openIdStateError": "O Estado não se iguala, recusando-se a continuar!",
+			"openIdStateError": "Não foi possível validar a autenticação. Tente entrar novamente.",
 			"logout": "Sair",
 			"emailInvalid": "Por favor, insira um endereço de e-mail válido.",
 			"usernameRequired": "Por favor, insira um nome de usuário.",
@@ -63,62 +91,140 @@
 			"hidePassword": "Ocultar senha",
 			"noAccountYet": "Não possui uma conta ainda?",
 			"alreadyHaveAnAccount": "Já possui uma conta?",
-			"remember": "Permanecer conectado"
+			"remember": "Permanecer conectado",
+			"passwordPlaceholder": "Sua senha",
+			"resetPasswordSuccess": "Confira sua caixa de entrada! Enviamos um e-mail com instruções para redefinir sua senha.",
+			"openIdGeneralError": "Ocorreu um erro ao autenticar com o provedor externo.",
+			"openIdTotpRequired": "Sua conta exige autenticação de dois fatores. Informe o código TOTP e entre novamente.",
+			"openIdTotpSubmit": "Continuar",
+			"oauthMissingParams": "Faltam parâmetros obrigatórios do OAuth: {params}",
+			"oauthIncompleteResponse": "A resposta de acesso veio incompleta. Tente novamente.",
+			"oauthRedirectedToApp": "Você foi redirecionado para o aplicativo. Já pode fechar esta aba.",
+			"desktopTryDemo": "Experimentar a demonstração",
+			"desktopCustomServer": "URL de servidor personalizado",
+			"desktopCustomServerDescription": "Informe a URL do seu servidor Apito de Mestre para começar.",
+			"desktopWaitingForAuth": "Aguardando autenticação…",
+			"desktopOAuthError": "Falha na autenticação: {error}",
+			"usernameMustNotContainSpace": "O nome de usuário não pode conter espaços.",
+			"usernameMustNotLookLikeUrl": "O nome de usuário não pode parecer uma URL.",
+			"passwordNotMin": "A senha deve ter pelo menos 8 caracteres.",
+			"passwordNotMax": "A senha deve ter no máximo 72 caracteres.",
+			"registrationDisabled": "O cadastro está desativado.",
+			"passwordResetTokenMissing": "O token de redefinição de senha não foi informado.",
+			"registrationFailed": "Ocorreu um erro no cadastro. Confira os dados e tente novamente.",
+			"registrationConfirmEmail": "Sua conta foi criada! Confira sua caixa de entrada e clique no link do e-mail de confirmação antes de entrar.",
+			"inviteInvalid": "Este link de convite é inválido ou expirou.",
+			"inviteLoadFailed": "Não foi possível carregar este convite. Tente novamente.",
+			"inviteTeams": "Você participará de: {teams}"
 		},
 		"settings": {
 			"title": "Configurações",
-			"newPasswordTitle": "Atualize Sua Senha",
+			"newPasswordTitle": "Atualizar senha",
 			"currentPasswordPlaceholder": "Sua senha atual",
 			"passwordUpdateSuccess": "A senha foi atualizada com sucesso.",
 			"updateEmailTitle": "Atualizar seu endereço de e-mail",
 			"general": {
-				"title": "Configurações Gerais",
+				"title": "Configurações gerais",
 				"savedSuccess": "As configurações foram atualizadas com sucesso.",
-				"overdueReminders": "Envie-me um resumo de minhas tarefas pendentes diariamente",
-				"discoverableByName": "Permitir que outros usuários me adicionem como membro para equipes ou projetos quando pesquisam meu nome",
-				"discoverableByEmail": "Permitir que outros usuários me adicionem como membro de equipes ou projetos quando eles pesquisam meu e-mail completo",
-				"playSoundWhenDone": "Tocar um som ao marcar as tarefas como feitas",
+				"overdueReminders": "Receber diariamente um resumo das minhas tarefas atrasadas",
+				"discoverableByName": "Permitir que outros usuários me adicionem a equipes ou projetos ao pesquisar meu nome",
+				"discoverableByEmail": "Permitir que outros usuários me adicionem a equipes ou projetos ao pesquisar meu e-mail completo",
+				"playSoundWhenDone": "Tocar um som ao concluir tarefas",
 				"weekStart": "A semana começa em",
 				"weekStartSunday": "Domingo",
 				"weekStartMonday": "Segunda-feira",
 				"language": "Idioma",
-				"overdueTasksRemindersTime": "Horário do e-mail de lembrete de tarefas pendentes",
-				"filterUsedOnOverview": "Salvo filtro utilizado na visão geral"
+				"overdueTasksRemindersTime": "Horário do e-mail de lembrete de tarefas atrasadas",
+				"filterUsedOnOverview": "Filtro salvo usado na visão geral",
+				"name": "Meu nome",
+				"newName": "Novo nome",
+				"emailReminders": "Receber lembretes de tarefas por e-mail",
+				"allowIconChanges": "Exibir logotipos especiais em determinadas épocas",
+				"alwaysShowBucketTaskCount": "Sempre exibir a quantidade de tarefas nas colunas do Kanban",
+				"defaultTaskRelationType": "Tipo padrão de relação entre tarefas",
+				"weekStartTuesday": "Terça-feira",
+				"weekStartWednesday": "Quarta-feira",
+				"weekStartThursday": "Quinta-feira",
+				"weekStartFriday": "Sexta-feira",
+				"weekStartSaturday": "Sábado",
+				"defaultProject": "Projeto padrão",
+				"defaultView": "Visualização padrão",
+				"timezone": "Fuso horário",
+				"quickAddDefaultReminders": "Lembretes padrão para a adição rápida",
+				"quickAddDefaultRemindersDescription": "Estes lembretes serão adicionados automaticamente a todas as tarefas com data de entrega criadas pela adição rápida.",
+				"quickAddDefaultRemindersHint": "Adicione um ou mais lembretes relativos à data de entrega da tarefa. Deixe vazio para desativar.",
+				"showLastViewed": "Exibir os projetos vistos recentemente na visão geral",
+				"minimumPriority": "Prioridade mínima das tarefas exibidas",
+				"dateDisplay": "Formato de exibição da data",
+				"dateDisplayOptions": {
+					"relative": "Relativo (por exemplo, há 3 dias)",
+					"mm-dd-yyyy": "MM-DD-AAAA",
+					"dd-mm-yyyy": "DD-MM-AAAA",
+					"yyyy-mm-dd": "AAAA-MM-DD",
+					"mm/dd/yyyy": "MM/DD/AAAA",
+					"dd/mm/yyyy": "DD/MM/AAAA",
+					"yyyy/mm/dd": "AAAA/MM/DD"
+				},
+				"timeFormat": "Formato de hora",
+				"defaultDueTime": "Horário de entrega padrão",
+				"defaultDueTimeDescription": "Horário padrão usado ao definir uma data de entrega sem informar a hora, inclusive no seletor de datas e na adição rápida.",
+				"timeTrackingDefaultStart": "Horário inicial do preenchimento inteligente de tempo",
+				"timeFormatOptions": {
+					"12h": "12 horas (AM/PM)",
+					"24h": "24 horas (HH:mm)"
+				},
+				"externalUserNameChange": "Seu nome é gerenciado pelo provedor de acesso ({provider}). Para alterá-lo, atualize-o no provedor."
 			},
 			"totp": {
-				"title": "Autenticação de Dois Fatores",
-				"enroll": "Inscrever-se",
+				"title": "Autenticação de dois fatores",
+				"enroll": "Configurar",
 				"finishSetupPart2": "Depois disso, digite um código de seu aplicativo abaixo.",
 				"scanQR": "Alternativamente, você pode escanear este código QR:",
 				"passcode": "Código",
 				"setupSuccess": "Você configurou a autenticação de dois fatores com sucesso!",
-				"enterPassword": "Por favor, Digite sua senha",
+				"enterPassword": "Digite sua senha",
 				"disable": "Desativar a autenticação de dois fatores",
-				"disableSuccess": "A autenticação de dois fatores foi desativada com êxito."
+				"disableSuccess": "A autenticação de dois fatores foi desativada com êxito.",
+				"finishSetupPart1": "Para concluir a configuração, use esta chave no seu aplicativo TOTP (Google Authenticator ou semelhante):",
+				"passcodePlaceholder": "Código gerado pelo seu aplicativo TOTP",
+				"confirmNotice": "Ao ativar a autenticação de dois fatores, você sairá de todas as sessões e precisará entrar novamente.",
+				"confirmSuccess": "A autenticação de dois fatores foi ativada!"
 			},
 			"caldav": {
 				"title": "CalDAV",
-				"more": "Mais informações sobre CalDAV em Apito de Mestre",
-				"tokens": "CalDAV Tokens"
+				"more": "Mais informações sobre o CalDAV no Apito de Mestre",
+				"tokens": "Tokens CalDAV",
+				"howTo": "Você pode conectar o Apito de Mestre a aplicativos CalDAV para visualizar e gerenciar todas as suas tarefas em diferentes aplicativos. Informe esta URL no seu aplicativo:",
+				"urlLabel": "URL do CalDAV",
+				"tokensHowTo": "Para autenticar no CalDAV, você pode usar sua senha de acesso ou um token exclusivo do CalDAV.",
+				"createToken": "Criar token CalDAV",
+				"tokenCreated": "Seu novo token: {token}",
+				"deleteSuccess": "O token CalDAV foi excluído.",
+				"wontSeeItAgain": "Anote ou guarde o token em um lugar seguro. Você não poderá vê-lo novamente.",
+				"mustUseToken": "Você precisa criar um token CalDAV para usar o CalDAV em aplicativos de terceiros. Informe o token no campo de senha do aplicativo.",
+				"usernameIs": "Seu nome de usuário no CalDAV é: {0}",
+				"apiTokenHint": "Você também pode usar um token de API com permissão CalDAV. Crie um em {link}."
 			},
 			"avatar": {
-				"title": "Avatar",
+				"title": "Imagem de perfil",
 				"initials": "Iniciais",
 				"gravatar": "Gravatar",
 				"marble": "Degradê",
 				"upload": "Carregar",
-				"uploadAvatar": "Carregar Avatar",
-				"statusUpdateSuccess": "O status de Avatar foi atualizado com sucesso!",
-				"setSuccess": "O avatar foi definido com sucesso!"
+				"uploadAvatar": "Enviar imagem de perfil",
+				"statusUpdateSuccess": "O tipo de imagem de perfil foi atualizado.",
+				"setSuccess": "A imagem de perfil foi definida.",
+				"ldap": "Sua imagem de perfil é sincronizada automaticamente com o serviço de diretório da sua organização (LDAP). Consulte a equipe de TI para saber como alterá-la.",
+				"openid": "Sua imagem de perfil é sincronizada automaticamente com seu provedor de acesso ({provider}). Para alterá-la, atualize-a no provedor."
 			},
 			"quickAddMagic": {
-				"title": "Modo de adição mágica rápida",
+				"title": "Modo de adição rápida",
 				"disabled": "Desativado",
 				"todoist": "Todoist",
 				"vikunja": "Apito de Mestre"
 			},
 			"appearance": {
-				"title": "Esquema de Cores",
+				"title": "Esquema de cores",
 				"colorScheme": {
 					"light": "Claro",
 					"system": "Sistema",
@@ -131,34 +237,175 @@
 				"apiDocs": "Confira a documentação da API",
 				"createAToken": "Criar um token",
 				"createToken": "Criar um token",
-				"30d": "30 Dias",
-				"60d": "60 Dias",
-				"90d": "90 Dias",
+				"30d": "30 dias",
+				"60d": "60 dias",
+				"90d": "90 dias",
 				"permissionExplanation": "As permissões controlam as ações que um token de API pode realizar.",
 				"titleRequired": "O título é obrigatório",
-				"expired": "Este token venceu {ago}.",
+				"expired": "Este token expirou {ago}.",
 				"tokenCreatedSuccess": "Aqui está seu novo token de API: {token}",
 				"tokenCreatedNotSeeAgain": "Guarde em um local seguro, você não poderá visualizá-lo novamente!",
 				"delete": {
 					"header": "Excluir este token",
-					"text1": "Você tem certeza que deseja apagar este token \"{token}\"?",
+					"text1": "Tem certeza de que deseja excluir o token \"{token}\"?",
 					"text2": "Isso revogará o acesso a todos os aplicativos ou integrações que o usam. Esse processo é irreversível."
 				},
 				"attributes": {
 					"title": "Título",
-					"titlePlaceholder": "Insira um título que você lembrará depois",
+					"titlePlaceholder": "Informe um título fácil de lembrar",
 					"expiresAt": "Expira em",
 					"permissions": "Permissões"
+				},
+				"expiryInvalid": "Escolha uma data de validade futura.",
+				"permissionRequired": "Selecione pelo menos uma permissão da lista.",
+				"presets": {
+					"title": "Configurações rápidas",
+					"readOnly": "Somente leitura",
+					"tasks": "Gerenciamento de tarefas",
+					"projects": "Gerenciamento de projetos",
+					"fullAccess": "Acesso completo"
+				}
+			},
+			"bots": {
+				"title": "Usuários de automação",
+				"description": "Usuários de automação pertencem a você e acessam o sistema somente pela API. Eles podem participar de projetos, receber tarefas e usar tokens de API para autenticação. Eles não podem entrar pela tela de acesso.",
+				"namePlaceholder": "Meu assistente",
+				"create": "Criar usuário de automação",
+				"createSuccess": "O usuário de automação \"{username}\" foi criado.",
+				"enable": "Ativar",
+				"tokensInactive": "Os tokens de API de um usuário de automação desativado são recusados. Ative o usuário para criar ou usar tokens.",
+				"badge": "Automação",
+				"badgeOwner": "Automação criada por {user}",
+				"delete": {
+					"header": "Excluir este usuário de automação",
+					"text1": "Tem certeza de que deseja excluir o usuário de automação \"{username}\"?",
+					"text2": "Esta ação é irreversível. Todos os tokens de API deste usuário serão revogados."
+				}
+			},
+			"newPassword": "Nova senha",
+			"currentPassword": "Senha atual",
+			"updateEmailNew": "Novo endereço de e-mail",
+			"updateEmailSuccess": "Seu endereço de e-mail foi atualizado.",
+			"updateEmailPending": "Seu novo endereço de e-mail {email} aguarda confirmação. O endereço atual continuará ativo até você clicar no link que enviamos para o novo endereço.",
+			"updateEmailPendingSuccess": "Enviamos um link de confirmação para o novo endereço. O endereço atual continuará ativo até a confirmação.",
+			"updateEmailResend": "Reenviar e-mail de confirmação",
+			"updateEmailResendSuccess": "Enviamos um novo link de confirmação.",
+			"updateEmailCancel": "Cancelar alteração",
+			"updateEmailCancelSuccess": "A alteração do e-mail foi cancelada.",
+			"updateEmailConfirmed": "Seu novo endereço de e-mail foi confirmado.",
+			"sections": {
+				"personalInformation": "Informações pessoais",
+				"taskAndNotifications": "Projetos e tarefas",
+				"privacy": "Privacidade",
+				"localization": "Idioma e região",
+				"appearance": "Aparência e comportamento",
+				"desktop": "Aplicativo para computador"
+			},
+			"desktop": {
+				"quickEntryShortcut": "Atalho de adição rápida",
+				"shortcutRecorderPlaceholder": "Clique para definir o atalho",
+				"shortcutRecorderRecording": "Pressione uma combinação de teclas…",
+				"shortcutRecorderClear": "Limpar atalho"
+			},
+			"linkedAccounts": {
+				"title": "Contas vinculadas",
+				"description": "Vincule uma conta de um provedor de identidade para poder entrar com ela, além da sua senha.",
+				"provider": "Provedor",
+				"linkedAt": "Vinculada em",
+				"none": "Você ainda não vinculou nenhuma conta.",
+				"link": "Vincular {provider}",
+				"unlink": "Desvincular",
+				"unlinkHeader": "Desvincular {provider}",
+				"unlinkText": "Você não poderá mais entrar com esta conta. Informe sua senha para confirmar.",
+				"linkSuccess": "A conta foi vinculada.",
+				"unlinkSuccess": "A conta foi desvinculada.",
+				"confirmTitle": "Vincular {provider} à sua conta",
+				"confirmAccount": "Conta a vincular:",
+				"confirmText": "Informe sua senha para vincular esta conta do {provider} à sua conta Apito de Mestre. Depois, você poderá entrar com qualquer uma delas.",
+				"confirm": "Vincular conta",
+				"noSession": "Você precisa entrar para vincular uma conta. Entre com sua senha e reinicie o vínculo nas configurações.",
+				"backToLinkedAccounts": "Voltar às contas vinculadas"
+			},
+			"feeds": {
+				"title": "Feed Atom",
+				"howTo": "Você pode acompanhar as notificações do Apito de Mestre em qualquer leitor compatível com Atom. Use esta URL:",
+				"usernameIs": "Seu nome de usuário para o feed é: {0}",
+				"apiTokenHint": "Autentique com um token de API que tenha a permissão {scope}. Crie um em {link}.",
+				"tokenTitle": "Feed Atom"
+			},
+			"backgroundBrightness": {
+				"title": "Brilho do plano de fundo"
+			},
+			"webhooks": {
+				"title": "Notificações por webhook",
+				"description": "Configure URLs de webhook para receber solicitações POST quando houver lembretes ou atrasos. Estes webhooks recebem eventos de todos os seus projetos."
+			},
+			"sessions": {
+				"title": "Sessões",
+				"description": "Estes são os dispositivos conectados à sua conta. Você pode revogar qualquer sessão para desconectar o dispositivo. A revogação pode levar até 10 minutos para entrar em vigor por completo.",
+				"deviceInfo": "Dispositivo",
+				"ipAddress": "Endereço IP",
+				"lastActive": "Última atividade",
+				"current": "Sessão atual",
+				"delete": {
+					"header": "Revogar sessão",
+					"text": "Tem certeza de que deseja revogar esta sessão? O dispositivo será desconectado. A sessão pode levar até 10 minutos para expirar por completo."
+				},
+				"deleteSuccess": "A sessão foi revogada. Ela pode levar até 10 minutos para expirar por completo.",
+				"noOtherSessions": "Nenhuma outra sessão ativa."
+			},
+			"mcp": {
+				"intro": "Conecte um assistente de IA às suas tarefas, projetos e etiquetas com o Model Context Protocol (MCP).",
+				"more": "Mais informações sobre o MCP no Apito de Mestre",
+				"endpoint": "Endereço do MCP",
+				"tokens": "Tokens MCP",
+				"manageTokens": "Gerenciar todos os tokens de API",
+				"created": "Seu token MCP está pronto. Escolha seu aplicativo abaixo para conectá-lo.",
+				"client": "Qual aplicativo você usa?",
+				"chooseClient": "Escolha um aplicativo",
+				"clientHelp": "Guia de configuração do {client}",
+				"typedPreset": "Ferramentas tipadas: leitura e escrita",
+				"clients": {
+					"claudeCode": {
+						"command": "Execute este comando em um terminal: {value}",
+						"verify": "Inicie uma sessão do Claude Code e execute /mcp para verificar a conexão."
+					},
+					"codex": {
+						"environment": "Defina o token nas variáveis de ambiente do terminal: {value}",
+						"command": "Adicione o servidor MCP: {value}",
+						"config": "Como alternativa, adicione isto a ~/.codex/config.toml após definir a variável de ambiente: {value}",
+						"note": "Inicie o Codex pelo terminal onde você definiu VIKUNJA_MCP_TOKEN. Defina a variável novamente em cada novo terminal ou armazene-a com segurança nas variáveis de ambiente."
+					},
+					"claudeDesktop": {
+						"open": "Abra Personalizar → Conectores → Adicionar conector personalizado. Nos planos Team e Enterprise, o proprietário adiciona o conector em Configurações da organização → Conectores.",
+						"url": "Dê ao conector o nome Apito de Mestre e informe esta URL: {value}",
+						"auth": "Em Autenticação, selecione Sem login.",
+						"header": "Em Cabeçalhos da solicitação, escolha authorization e cole o valor completo, incluindo Bearer e o espaço. Depois, adicione o conector: {value}",
+						"beta": "Os cabeçalhos de solicitação estão em fase beta para um grupo limitado de organizações. Se essa seção não aparecer, a conexão com o Apito de Mestre ainda não está disponível para sua conta."
+					},
+					"mistral": {
+						"open": "Na barra lateral esquerda, abra Contexto → Conectores → Adicionar conector → Adicionar conector personalizado.",
+						"url": "Dê ao conector o nome Apito de Mestre, informe esta URL e selecione Conectar: {value}",
+						"token": "Escolha a autenticação HTTP Bearer e cole este token: {value}"
+					},
+					"chatgpt": {
+						"unavailable": "O ChatGPT exige OAuth para se conectar ao Apito de Mestre. O MCP ainda não oferece suporte a OAuth, portanto este token não pode ser usado no ChatGPT."
+					},
+					"other": {
+						"title": "Outro",
+						"url": "Use o transporte HTTP com transmissão neste endereço: {value}",
+						"header": "Envie este cabeçalho de autorização em todas as solicitações: {value}"
+					}
 				}
 			}
 		},
 		"deletion": {
-			"title": "Excluir sua conta Apito de Mestre",
+			"title": "Excluir sua conta do Apito de Mestre",
 			"text1": "A exclusão da sua conta é permanente e não pode ser desfeita. Vamos excluir todos os seus projetos, tarefas e tudo o que estiver associado a ela.",
 			"text2": "Para prosseguir, favor digitar sua senha. Você receberá um e-mail com instruções adicionais.",
 			"text3": "Para continuar, pressione o botão abaixo. Você receberá um e-mail com mais instruções.",
 			"confirm": "Excluir minha conta",
-			"requestSuccess": "O pedido foi bem sucedido. Você receberá um e-mail com mais instruções.",
+			"requestSuccess": "A solicitação foi enviada. Você receberá um e-mail com mais instruções.",
 			"passwordRequired": "Por favor, digite sua senha.",
 			"confirmSuccess": "Você confirmou com sucesso a exclusão de sua conta. Nós excluiremos sua conta em três dias.",
 			"scheduled": "Excluiremos sua conta Apito de Mestre em {date} ({dateSince}).",
@@ -169,21 +416,23 @@
 			"scheduledCancelSuccess": "Não excluiremos sua conta."
 		},
 		"export": {
-			"title": "Exportar seus dados Apito de Mestre",
+			"title": "Exportar seus dados do Apito de Mestre",
 			"description": "Você pode solicitar uma cópia de todos os seus dados do Apito de Mestre. Isso inclui projetos, tarefas e tudo o que está associado a eles. Você pode importar esses dados em qualquer instância do Apito de Mestre através da função de migração.",
 			"descriptionPasswordRequired": "Por favor, digite sua senha para prosseguir:",
 			"request": "Solicitar uma cópia dos meus dados do Apito de Mestre",
-			"success": "Você solicitou com sucesso seus dados Apito de Mestre! Nós lhe enviaremos um e-mail assim que estiver pronto para download.",
-			"downloadTitle": "Faça o download de seus dados Apito de Mestre exportados"
+			"success": "A exportação dos seus dados do Apito de Mestre foi solicitada! Enviaremos um e-mail quando ela estiver pronta para baixar.",
+			"downloadTitle": "Baixar seus dados exportados do Apito de Mestre",
+			"ready": "Sua exportação está pronta para baixar. Ela ficará disponível até {0}.",
+			"requestNew": "Solicitar outra exportação"
 		}
 	},
 	"project": {
-		"archivedMessage": "Este projeto está arquivado. Não é possível criar novas ou editar tarefas para ele.",
+		"archivedMessage": "Este projeto está arquivado. Não é possível criar ou editar tarefas nele.",
 		"archived": "Arquivado",
 		"showArchived": "Mostrar arquivados",
 		"color": "Cor",
 		"projects": "Projetos",
-		"parent": "Projeto Pai",
+		"parent": "Projeto superior",
 		"search": "Digite para pesquisar um projeto…",
 		"searchSelect": "Clique ou pressione Enter para selecionar este projeto",
 		"shared": "Projetos compartilhados",
@@ -191,7 +440,7 @@
 		"inboxTitle": "Caixa de entrada",
 		"create": {
 			"header": "Novo projeto",
-			"titlePlaceholder": "O título do projeto será aqui…",
+			"titlePlaceholder": "Digite o título do projeto…",
 			"addTitleRequired": "Por favor, especifique um título.",
 			"createdSuccess": "Projeto foi criado com sucesso.",
 			"addProjectRequired": "Por favor, especifique um projeto ou defina um projeto padrão nas configurações."
@@ -200,7 +449,9 @@
 			"title": "Arquivar \"{project}\"",
 			"archive": "Arquivar este projeto",
 			"unarchive": "Desarquivar este projeto",
-			"success": "O projeto foi arquivado com sucesso."
+			"success": "O projeto foi arquivado com sucesso.",
+			"unarchiveText": "Você poderá criar tarefas e editar o projeto.",
+			"archiveText": "Você não poderá editar este projeto nem criar tarefas até desarquivá-lo."
 		},
 		"background": {
 			"title": "Definir plano de fundo do projeto",
@@ -210,50 +461,66 @@
 			"poweredByUnsplash": "Fornecido por Unsplash",
 			"loadMore": "Carregar mais fotos",
 			"success": "O plano de fundo foi definido com sucesso!",
-			"removeSuccess": "O plano de fundo foi removido com sucesso!"
+			"removeSuccess": "O plano de fundo foi removido com sucesso!",
+			"searchError": "Não foi possível carregar os planos de fundo do Unsplash.",
+			"retry": "Tentar novamente",
+			"setBackground": "Definir como plano de fundo do projeto",
+			"setBackgroundBy": "Definir a foto de {author} como plano de fundo do projeto",
+			"noPermission": "Você precisa de permissão de escrita neste projeto para alterar o plano de fundo."
 		},
 		"delete": {
 			"title": "Excluir \"{project}\"",
-			"header": "Excluir este projeto"
+			"header": "Excluir este projeto",
+			"success": "O projeto foi movido para a lixeira.",
+			"toTrash": "Move este projeto e {tasks} para a lixeira. Eles serão excluídos permanentemente após {days} dias.",
+			"toTrashFallback": "Move este projeto e todo o seu conteúdo para a lixeira. Ele será excluído permanentemente após {days} dias.",
+			"toTrashWithSubProjects": "Move este projeto, {subProjects} e {tasks} para a lixeira. Eles serão excluídos permanentemente após {days} dias.",
+			"subProjects": "{count} subprojeto | {count} subprojetos",
+			"tasks": "nenhuma tarefa | {count} tarefa | {count} tarefas",
+			"timeEntries": "{entries} de {people} serão mantidos, mas desvinculados do projeto após {days} dias.",
+			"timeEntryCount": "{count} registro de tempo | {count} registros de tempo",
+			"people": "{count} pessoa | {count} pessoas"
 		},
 		"duplicate": {
 			"title": "Duplicar este projeto",
 			"label": "Duplicar",
-			"text": "Selecionar um projeto pai que deve conter o projeto duplicado:",
-			"success": "O projeto foi duplicado com sucesso."
+			"text": "Selecione o projeto superior que deve conter a cópia:",
+			"success": "O projeto foi duplicado com sucesso.",
+			"shares": "Copiar os compartilhamentos (usuários, equipes e links) para a cópia"
 		},
 		"edit": {
 			"header": "Editar este projeto",
 			"title": "Editar \"{project}\"",
-			"titlePlaceholder": "O título do projeto aqui…",
-			"identifierTooltip": "O identificador do projeto pode ser usado para identificar exclusivamente uma tarefa entre projetos. Você pode deixar vazia para desativá-la.",
+			"titlePlaceholder": "Digite o título do projeto…",
+			"identifierTooltip": "O identificador do projeto permite identificar uma tarefa de forma única entre os projetos. Deixe vazio para desativá-lo.",
 			"identifier": "Identificador do projeto",
-			"identifierPlaceholder": "O identificador do projeto aqui…",
+			"identifierPlaceholder": "Digite o identificador do projeto…",
 			"description": "Descrição",
 			"descriptionPlaceholder": "Insira uma descrição para este projeto, digite '/' para obter mais opções…",
 			"color": "Cor",
 			"success": "Projeto foi atualizado com sucesso."
 		},
 		"share": {
-			"header": "Compartilhe este projeto",
+			"header": "Compartilhar este projeto",
 			"title": "Compartilhar \"{project}\"",
 			"share": "Compartilhar",
 			"links": {
-				"title": "Compartilhar Link",
+				"title": "Compartilhamento por link",
 				"what": "O que é um link de compartilhamento?",
-				"explanation": "Compartilhar Links permite que você compartilhe facilmente uma lista com outros usuários que não têm uma conta na Apito de Mestre.",
+				"explanation": "Um link de compartilhamento permite compartilhar facilmente um projeto com pessoas que não têm uma conta no Apito de Mestre.",
 				"name": "Nome (opcional)",
 				"namePlaceholder": "ex. Lorem Ipsum",
-				"nameExplanation": "Todas as ações feitas por este compartilhamento de link aparecerão com o nome.",
+				"nameExplanation": "Todas as ações realizadas por este link de compartilhamento aparecerão com este nome.",
 				"password": "Senha (opcional)",
 				"passwordExplanation": "Ao se autenticar, o usuário deverá digitar esta senha.",
 				"noName": "Nenhum nome definido",
 				"remove": "Remover um link de compartilhamento",
-				"removeText": "Você tem certeza de que quer remover este link de compartilhamento? Não será mais possível acessar esta lista com este link compartilhado. Isto não pode ser desfeito!",
+				"removeText": "Tem certeza de que deseja remover este link de compartilhamento? Não será mais possível acessar o projeto por ele. Esta ação não pode ser desfeita.",
 				"createSuccess": "O link de compartilhamento foi criado com sucesso.",
 				"deleteSuccess": "O link de compartilhamento foi excluído com sucesso",
 				"view": "Visualização",
-				"sharedBy": "Compartilhado por {0}"
+				"sharedBy": "Compartilhado por {0}",
+				"create": "Criar um link de compartilhamento"
 			},
 			"userTeam": {
 				"typeUser": "usuário | usuários",
@@ -261,22 +528,48 @@
 				"shared": "Compartilhado com estes {type}",
 				"you": "Você",
 				"notShared": "Não compartilhado com nenhum {type} ainda.",
-				"removeHeader": "Remover um {type} da {sharable}",
-				"removeText": "Você tem certeza de que quer remover este {sharable} do {type}? Isto não pode ser desfeito!",
-				"removeSuccess": "O {sharable} foi removido com sucesso do {type}.",
-				"addedSuccess": "O {type} foi adicionado com sucesso.",
-				"updatedSuccess": "O {type} foi adicionado com sucesso."
+				"removeHeader": "Remover acesso de {type} ao {sharable}",
+				"removeText": "Tem certeza de que deseja remover o acesso de {type} a este {sharable}? Esta ação não pode ser desfeita.",
+				"removeSuccess": "O acesso de {type} ao {sharable} foi removido.",
+				"addedSuccess": "O acesso de {type} foi adicionado.",
+				"updatedSuccess": "O acesso de {type} foi atualizado.",
+				"remove": "Remover este acesso de {type}",
+				"sharable": "projeto",
+				"removeCleanupText": "Quem perder o acesso a este projeto ou aos seus subprojetos também perderá:",
+				"search": "Buscar {type} para compartilhar este projeto",
+				"permissionFor": "Permissão para {sharable}"
 			},
 			"attributes": {
 				"link": "Link",
 				"delete": "Excluir"
+			},
+			"accessCleanup": {
+				"others": {
+					"assignments": "as atribuições de tarefas",
+					"subscriptions": "as assinaturas de tarefas e projetos",
+					"webhooks": "os webhooks que criou"
+				},
+				"self": {
+					"assignments": "suas atribuições de tarefas",
+					"subscriptions": "suas assinaturas de tarefas e projetos",
+					"webhooks": "os webhooks que você criou"
+				}
+			},
+			"permission": {
+				"title": "Permissão",
+				"read": "Somente leitura",
+				"readWrite": "Leitura e escrita",
+				"admin": "Administrador"
 			}
 		},
 		"list": {
 			"title": "Lista",
 			"add": "Adicionar",
 			"empty": "Este projeto está vazio no momento.",
-			"editTask": "Editar Tarefa"
+			"editTask": "Editar tarefa",
+			"addPlaceholder": "Adicionar uma tarefa…",
+			"newTaskCta": "Crie uma tarefa.",
+			"sort": "Ordenar"
 		},
 		"gantt": {
 			"title": "Gantt",
@@ -284,36 +577,59 @@
 			"default": "Padrão",
 			"month": "Mês",
 			"day": "Dia",
-			"hour": "Hora"
+			"hour": "Hora",
+			"chartLabel": "Gráfico de Gantt do projeto",
+			"taskBarsForRow": "Barras de tarefas da linha {rowId}",
+			"taskBarLabel": "Tarefa: {task}. De {startDate} a {endDate}. {dateType}. Clique para editar ou arraste para mover.",
+			"scheduledDates": "Datas programadas",
+			"estimatedDates": "Datas estimadas",
+			"resizeStartDate": "Ajustar a data inicial da tarefa {task}",
+			"resizeEndDate": "Ajustar a data final da tarefa {task}",
+			"timelineHeader": "Cabeçalho da linha do tempo com meses e dias",
+			"monthsRow": "Linha dos meses",
+			"daysRow": "Linha dos dias",
+			"monthLabel": "Mês: {month}",
+			"dayLabel": "Dia: {date}, {weekday}",
+			"dayLabelToday": "Hoje: {date}, {weekday}",
+			"taskAriaLabel": "Tarefa: {task}",
+			"taskAriaLabelById": "Tarefa {id}",
+			"partialDatesStart": "Somente data inicial (sem término definido)",
+			"partialDatesEnd": "Somente data final (sem início definido)",
+			"expandGroup": "Expandir grupo: {task}",
+			"collapseGroup": "Recolher grupo: {task}",
+			"toggleRelationArrows": "Exibir ou ocultar setas de relação"
 		},
 		"table": {
 			"title": "Tabela",
-			"columns": "Colunas"
+			"columns": "Colunas",
+			"sortBy": "Ordenar por {column}"
 		},
 		"kanban": {
 			"title": "Kanban",
 			"limit": "Limite: {limit}",
-			"doneBucket": "Bucket concluído",
-			"doneBucketHint": "Todas as tarefas movidas para este bucket serão marcadas automaticamente como concluídas.",
-			"doneBucketHintExtended": "Todas as tarefas movidas para o bucket concluído serão automaticamente concluídas também. Todas as tarefas concluídas de outro lugar serão movidas também.",
-			"doneBucketSavedSuccess": "O bucket 'Concluído' foi salvo com sucesso.",
-			"defaultBucket": "Bucket padrão",
-			"defaultBucketHint": "Ao criar tarefas sem especificar um bucket, elas serão adicionadas a este bucket.",
-			"defaultBucketSavedSuccess": "O bucket foi marcado como concluído com sucesso.",
-			"deleteLast": "Você não pode remover o último bucket.",
+			"doneBucket": "Coluna de tarefas concluídas",
+			"doneBucketHint": "Todas as tarefas movidas para esta coluna serão marcadas automaticamente como concluídas.",
+			"doneBucketHintExtended": "Todas as tarefas movidas para esta coluna serão concluídas automaticamente. As tarefas concluídas em outros locais também serão movidas para cá.",
+			"doneBucketSavedSuccess": "A coluna de tarefas concluídas foi salva.",
+			"defaultBucket": "Coluna padrão",
+			"defaultBucketHint": "As tarefas criadas sem uma coluna definida serão adicionadas a esta coluna.",
+			"defaultBucketSavedSuccess": "A coluna padrão foi salva.",
+			"deleteLast": "Você não pode remover a última coluna.",
 			"addTaskPlaceholder": "Digite o título da tarefa…",
 			"addTask": "Adicionar uma tarefa",
 			"addAnotherTask": "Adicionar outra tarefa",
 			"addBucket": "Novo",
-			"addBucketPlaceholder": "Digite o título do novo bucket…",
-			"addBucket": "Novo",
-			"deleteHeaderBucket": "Excluir o bucket",
-			"deleteBucketText1": "Tem certeza que deseja excluir este bucket?",
-			"deleteBucketText2": "Isto não vai apagar nenhuma tarefa, mas as moverá para o bucket padrão.",
-			"deleteBucketSuccess": "O bucket foi excluído com sucesso.",
-			"bucketTitleSavedSuccess": "O título do bucket foi salvo com sucesso.",
-			"bucketLimitSavedSuccess": "O limite do bucket foi salvo com sucesso.",
-			"collapse": "Recolher este bucket"
+			"addBucketPlaceholder": "Digite o título da nova coluna…",
+			"deleteHeaderBucket": "Excluir coluna",
+			"deleteBucketText1": "Tem certeza de que deseja excluir esta coluna?",
+			"deleteBucketText2": "As tarefas serão movidas para a coluna padrão, sem serem excluídas.",
+			"deleteBucketSuccess": "A coluna foi excluída.",
+			"bucketTitleSavedSuccess": "O título da coluna foi salvo.",
+			"bucketLimitSavedSuccess": "O limite da coluna foi salvo.",
+			"collapse": "Recolher esta coluna",
+			"bucketLimitReached": "Você atingiu o limite da coluna. Remova tarefas ou aumente o limite para adicionar novas tarefas.",
+			"bucketLimitReachedShort": "Limite atingido",
+			"bucketOptions": "Opções da coluna"
 		},
 		"pseudo": {
 			"favorites": {
@@ -321,8 +637,8 @@
 			}
 		},
 		"webhooks": {
-			"title": "WebHooks",
-			"targetUrl": "URL destino",
+			"title": "Webhooks",
+			"targetUrl": "URL de destino",
 			"targetUrlInvalid": "Por favor, insira uma URL válida.",
 			"events": "Eventos",
 			"mustSelectEvents": "Você precisa selecionar ao menos um evento.",
@@ -332,23 +648,58 @@
 			"create": "Criar um webhook",
 			"secret": "Segredo",
 			"secretHint": "Se fornecido, todas as requisições para a URL de destino do webhook serão assinadas usando HMAC.",
-			"secretDocs": "Confira a documentação para obter mais detalhes sobre como usar segredos."
+			"secretDocs": "Confira a documentação para obter mais detalhes sobre como usar segredos.",
+			"eventsHint": "Selecione os eventos dos quais este webhook deve receber atualizações neste projeto.",
+			"selectAllEvents": "Selecionar todos",
+			"basicauthuser": "Usuário da autenticação básica",
+			"basicauthpassword": "Senha da autenticação básica",
+			"basicauthlink": "Usar autenticação básica?"
+		},
+		"title": "Título",
+		"myOpenTasksFilterTitle": "Minhas tarefas em aberto",
+		"favorite": "Marcar este projeto como favorito",
+		"unfavorite": "Remover este projeto dos favoritos",
+		"openSettingsMenu": "Abrir o menu de configurações do projeto",
+		"description": "Descrição do projeto",
+		"favoriteDescription": "Este projeto reúne todas as tarefas marcadas como favoritas.",
+		"first": {
+			"title": "Primeira visualização"
+		},
+		"views": {
+			"header": "Editar visualizações",
+			"title": "Título",
+			"actions": "Ações",
+			"kind": "Tipo",
+			"bucketConfigMode": "Modo de configuração das colunas",
+			"bucketConfig": "Configuração das colunas",
+			"bucketConfigManual": "Manual",
+			"filter": "Filtro",
+			"create": "Criar visualização",
+			"createSuccess": "A visualização foi criada.",
+			"titleRequired": "Informe um título.",
+			"delete": "Excluir esta visualização",
+			"edit": "Editar esta visualização",
+			"deleteText": "Tem certeza de que deseja remover esta visualização? Não será mais possível usá-la para visualizar as tarefas deste projeto. Nenhuma tarefa será excluída. Esta ação não pode ser desfeita.",
+			"deleteSuccess": "A visualização foi excluída.",
+			"onlyAdminsCanEdit": "Somente administradores do projeto podem editar as visualizações.",
+			"updateSuccess": "A visualização foi atualizada."
 		}
 	},
 	"filters": {
 		"title": "Filtros",
-		"clear": "Limpar Filtros",
+		"clear": "Limpar filtros",
 		"attributes": {
 			"title": "Título",
 			"titlePlaceholder": "O título do filtro salvo fica aqui…",
 			"description": "Descrição",
 			"descriptionPlaceholder": "Insira uma descrição para este filtro, digite '/' para obter mais opções…",
-			"includeNulls": "Incluir tarefas que não possuem um conjunto de valores"
+			"includeNulls": "Incluir tarefas sem valor definido"
 		},
 		"create": {
 			"title": "Novo filtro salvo",
 			"description": "Um filtro salvo é um projeto virtual que é calculado a partir de um conjunto de filtros cada vez que ele é acessado.",
-			"titleRequired": "Por favor, forneça um título para o filtro."
+			"titleRequired": "Por favor, forneça um título para o filtro.",
+			"action": "Criar filtro salvo"
 		},
 		"delete": {
 			"header": "Excluir este filtro",
@@ -358,33 +709,135 @@
 		"edit": {
 			"title": "Editar este filtro salvo",
 			"success": "O filtro foi salvo com sucesso."
+		},
+		"showResults": "Exibir resultados",
+		"noResults": "Nenhum resultado",
+		"fromView": "A visualização atual também tem um filtro definido:",
+		"fromViewBoth": "Ele será combinado com o que você informar aqui.",
+		"query": {
+			"label": "Consulta do filtro",
+			"placeholder": "Digite uma busca ou consulta de filtro…",
+			"help": {
+				"intro": "Para filtrar tarefas, use uma sintaxe de consulta semelhante à do SQL. Os campos disponíveis são:",
+				"link": "Como funciona?",
+				"canUseDatemath": "Você pode usar operações com datas para definir datas relativas. Clique no valor de data de uma consulta para saber mais.",
+				"fields": {
+					"done": "Se a tarefa está concluída",
+					"priority": "O nível de prioridade da tarefa (1 a 5)",
+					"percentDone": "A porcentagem de conclusão da tarefa (0 a 100)",
+					"dueDate": "A data de entrega da tarefa",
+					"startDate": "A data inicial da tarefa",
+					"endDate": "A data final da tarefa",
+					"doneAt": "A data e a hora em que a tarefa foi concluída",
+					"assignees": "Os responsáveis pela tarefa",
+					"createdBy": "O usuário que criou a tarefa (identificado pelo nome de usuário)",
+					"labels": "As etiquetas associadas à tarefa",
+					"project": "O projeto ao qual a tarefa pertence (disponível apenas em filtros salvos, não nos filtros de um projeto)",
+					"reminders": "As datas dos lembretes da tarefa; retorna tarefas com pelo menos um lembrete que corresponda à consulta",
+					"created": "A data e a hora em que a tarefa foi criada",
+					"updated": "A data e a hora da última alteração da tarefa"
+				},
+				"operators": {
+					"intro": "Os operadores disponíveis são:",
+					"notEqual": "Diferente de",
+					"equal": "Igual a",
+					"greaterThan": "Maior que",
+					"greaterThanOrEqual": "Maior ou igual a",
+					"lessThan": "Menor que",
+					"lessThanOrEqual": "Menor ou igual a",
+					"like": "Corresponde a um padrão (usando o curinga %)",
+					"in": "Corresponde a qualquer valor de uma lista separada por vírgulas",
+					"notIn": "Corresponde a qualquer valor que não esteja em uma lista separada por vírgulas"
+				},
+				"logicalOperators": {
+					"intro": "Para combinar várias condições, use os seguintes operadores lógicos:",
+					"and": "Operador AND: corresponde quando todas as condições são verdadeiras",
+					"or": "Operador OR: corresponde quando qualquer condição é verdadeira",
+					"parentheses": "Parênteses para agrupar condições"
+				},
+				"examples": {
+					"intro": "Exemplos de consultas de filtro:",
+					"priorityEqual": "Encontra tarefas com nível de prioridade 4",
+					"dueDatePast": "Encontra tarefas com data de entrega no passado",
+					"undoneHighPriority": "Encontra tarefas não concluídas com nível de prioridade 3 ou superior",
+					"assigneesIn": "Encontra tarefas atribuídas a \"user1\" ou \"user2\"",
+					"createdByEqual": "Encontra tarefas criadas por \"user1\"",
+					"priorityOneOrTwoPastDue": "Encontra tarefas com nível de prioridade 1 ou 2 e data de entrega no passado"
+				}
+			}
 		}
 	},
 	"migrate": {
 		"title": "Importar de outros serviços",
 		"titleService": "Importe seus dados do {name} para o Apito de Mestre",
 		"description": "Clique no logotipo de um dos serviços de terceiros abaixo para começar.",
-		"descriptionDo": "O Apito de Mestre irá importar todas as listas, tarefas, notas, lembretes e arquivos que você tem acesso.",
-		"authorize": "Para autorizar o Apito de Mestre para acessar sua conta {name}, clique no botão abaixo.",
-		"getStarted": "Guia de Introdução",
+		"descriptionDo": "O Apito de Mestre importará todas as listas, tarefas, notas, lembretes e arquivos aos quais você tem acesso.",
+		"authorize": "Para permitir que o Apito de Mestre acesse sua conta de {name}, clique no botão abaixo.",
+		"getStarted": "Guia de introdução",
 		"inProgress": "Importação em andamento…",
-		"alreadyMigrated1": "Parece que você já importou suas coisas do {name} em {date}.",
-		"alreadyMigrated2": "A importação novamente é possível, mas pode criar duplicadas. Tem certeza?",
-		"confirm": "Tenho certeza, comece a migrar agora, por favor!",
-		"importUpload": "Para importar os dados do {name} para Apito de Mestre, clique no botão abaixo para selecionar um arquivo.",
+		"alreadyMigrated1": "Você já importou seus dados de {name} em {date}.",
+		"alreadyMigrated2": "Você pode importar novamente, mas isso pode criar itens duplicados. Deseja continuar?",
+		"confirm": "Iniciar importação",
+		"importUpload": "Para importar os dados de {name} para o Apito de Mestre, clique no botão abaixo e selecione um arquivo.",
 		"upload": "Enviar arquivo",
-		"migrationStartedWillReciveEmail": "O Apito de Mestre irá importar suas listas/projetos, tarefas, lembretes e arquivos de '{service}'. Como isso vai demorar um pouco, nós vamos te enviar um e-mail uma vez concluído. Você pode fechar esta janela agora.",
-		"migrationInProgress": "Uma migração está atualmente em andamento. Por favor, aguarde até ela ser concluída."
+		"migrationStartedWillReciveEmail": "O Apito de Mestre importará suas listas, projetos, tarefas, lembretes e arquivos de '{service}'. Como isso pode levar algum tempo, enviaremos um e-mail quando terminar. Você já pode fechar esta janela.",
+		"migrationInProgress": "Uma importação está em andamento. Aguarde a conclusão.",
+		"migrationFinished": "A importação de {service} foi concluída. Todo o conteúdo importado já está disponível nos seus projetos.",
+		"migrationFailed": "A importação de {service} falhou: {reason}",
+		"failure": {
+			"reported": "A importação de {service} falhou. Já recebemos a notificação do erro e estamos trabalhando na correção.",
+			"interrupted": "A importação de {service} foi interrompida antes de terminar. Inicie novamente.",
+			"credentials": "Não foi possível verificar as credenciais de {service}. Conecte o serviço novamente.",
+			"queue": "Não foi possível adicionar a importação de {service} à fila. Inicie novamente.",
+			"upload": "Não foi possível armazenar o arquivo enviado. Envie-o novamente."
+		},
+		"credentials": {
+			"description": "Informe o endereço da sua instalação de {name} e como o Apito de Mestre deve acessar. Todos os projetos e quadros aos quais você tem acesso serão importados. As credenciais são usadas somente nesta importação e não são armazenadas.",
+			"url": "URL de {name}",
+			"authMethod": "Entrar com",
+			"apiKey": "Chave de API",
+			"apiKeyRequired": "Informe uma chave de API.",
+			"authPassword": "Nome de usuário e senha",
+			"start": "Iniciar importação"
+		},
+		"planka": {
+			"apiKeyHelp": "Um administrador do Planka precisa criar uma chave de API para sua conta. Copiar o token do navegador não funciona.",
+			"passwordHelp": "Disponível apenas para contas locais do Planka sem autenticação de dois fatores que já tenham entrado no Planka pelo menos uma vez. Contas que usam acesso único precisam de uma chave de API."
+		},
+		"csv": {
+			"description": "Importe tarefas de um arquivo CSV com associação personalizada de colunas.",
+			"uploadDescription": "Selecione um arquivo CSV para importar. Ele deve conter os dados das tarefas e os cabeçalhos na primeira linha.",
+			"selectFile": "Selecionar arquivo CSV",
+			"columnMappingDescription": "Associe cada coluna do arquivo CSV a um atributo da tarefa. O Apito de Mestre identificou automaticamente as associações mais prováveis. A prévia abaixo é atualizada quando você altera as configurações.",
+			"parsingOptions": "Opções de leitura",
+			"delimiter": "Separador",
+			"dateFormat": "Formato de data",
+			"skipRows": "Ignorar linhas",
+			"mapColumns": "Associar colunas",
+			"example": "por exemplo",
+			"preview": "Prévia",
+			"previewDescription": "Exibindo as primeiras 5 de {count} tarefas que serão importadas.",
+			"import": "Importar tarefas",
+			"untitled": "Tarefa sem título",
+			"ignore": "Ignorar",
+			"delimiters": {
+				"comma": "Vírgula (,)",
+				"semicolon": "Ponto e vírgula (;)",
+				"tab": "Tabulação",
+				"pipe": "Barra vertical (|)"
+			}
+		}
 	},
 	"label": {
 		"title": "Etiquetas",
 		"manage": "Editar etiquetas",
-		"description": "Clique em uma etiqueta para editá-la. Você pode editar todas a etiqueta que criou, usar todas a etiqueta associados a uma tarefa a quem você tem acesso.",
+		"description": "Clique em uma etiqueta para editá-la. Você pode editar as etiquetas que criou e usar as que estão associadas às tarefas às quais tem acesso.",
 		"newCTA": "Você não tem nenhuma etiqueta atualmente.",
 		"create": {
 			"header": "Nova etiqueta",
 			"titleRequired": "Por favor, especifique um título.",
-			"success": "A etiqueta foi criada com sucesso."
+			"success": "A etiqueta foi criada com sucesso.",
+			"title": "Criar uma etiqueta"
 		},
 		"edit": {
 			"header": "Editar etiqueta",
@@ -401,16 +854,28 @@
 	"sharing": {
 		"authenticating": "Autenticando…",
 		"passwordRequired": "Este projeto compartilhado requer uma senha. Por favor, digite-a abaixo:",
-		"invalidPassword": "A senha é inválida."
+		"invalidPassword": "A senha é inválida.",
+		"error": "Ocorreu um erro.",
+		"accessDenied": "Acesso negado. Verifique suas permissões e tente novamente.",
+		"serverError": "Ocorreu um erro no servidor. Tente novamente mais tarde.",
+		"projectLoadError": "Não foi possível carregar as informações do projeto.",
+		"retry": "Tentar novamente"
 	},
 	"navigation": {
 		"overview": "Visão geral",
-		"upcoming": "Em breve",
+		"upcoming": "Próximas tarefas",
 		"settings": "Configurações",
-		"imprint": "Imprimir",
-		"privacy": "Política de Privacidade"
+		"imprint": "Informações legais",
+		"privacy": "Política de privacidade",
+		"closeSidebar": "Fechar barra lateral",
+		"home": "Página inicial do Apito de Mestre",
+		"toggleChildProjects": "Exibir ou ocultar subprojetos",
+		"main": "Navegação principal",
+		"breadcrumb": "Caminho do projeto",
+		"savedFilters": "Filtros salvos"
 	},
 	"misc": {
+		"resetFilters": "Redefinir filtros",
 		"loading": "Carregando…",
 		"save": "Salvar",
 		"delete": "Excluir",
@@ -431,7 +896,7 @@
 		"close": "Fechar",
 		"download": "Baixar",
 		"showMenu": "Mostrar o menu",
-		"hideMenu": "Esconder o menu",
+		"hideMenu": "Ocultar menu",
 		"forExample": "Por exemplo:",
 		"welcomeBack": "Bem-vindo de volta!",
 		"custom": "Personalizado",
@@ -439,10 +904,27 @@
 		"created": "Criado em",
 		"createdBy": "Criado por {0}",
 		"actions": "Ações",
-		"cannotBeUndone": "Isso não pode ser desfeito!"
+		"cannotBeUndone": "Isso não pode ser desfeito!",
+		"avatarOfUser": "Imagem de perfil de {user}",
+		"closeBanner": "Fechar aviso",
+		"closeDialog": "Fechar janela",
+		"imagePreview": "Prévia da imagem",
+		"zoomIn": "Ampliar",
+		"zoomOut": "Reduzir",
+		"resetZoom": "Restaurar ampliação",
+		"imageLoadFailed": "Não foi possível carregar a imagem",
+		"videoPreview": "Prévia do vídeo",
+		"pdfPreview": "Prévia do PDF",
+		"videoLoadFailed": "Não é possível reproduzir este vídeo no seu navegador.",
+		"closeQuickActions": "Fechar ações rápidas",
+		"skipToContent": "Ir para o conteúdo principal",
+		"sortBy": "Ordenar por",
+		"dateRange": "Intervalo de datas",
+		"notSet": "Não definido",
+		"user": "Usuário"
 	},
 	"input": {
-		"resetColor": "Restaurar Cor",
+		"resetColor": "Restaurar cor",
 		"datepicker": {
 			"today": "Hoje",
 			"tomorrow": "Amanhã",
@@ -450,16 +932,34 @@
 			"thisWeekend": "Este fim de semana",
 			"laterThisWeek": "Mais tarde, esta semana",
 			"nextWeek": "Próxima semana",
-			"chooseDate": "Escolha uma data"
+			"chooseDate": "Escolha uma data",
+			"nextWeekend": "Próximo fim de semana",
+			"endOfMonth": "Fim do mês",
+			"inAMonth": "Daqui a um mês",
+			"quickSelect": "Seleção rápida",
+			"clear": "Limpar",
+			"noDate": "Nenhuma data definida",
+			"previousMonth": "Mês anterior",
+			"nextMonth": "Próximo mês",
+			"time": {
+				"hours": "Horas",
+				"minutes": "Minutos",
+				"hourUp": "Uma hora depois",
+				"hourDown": "Uma hora antes",
+				"minuteUp": "Cinco minutos depois",
+				"minuteDown": "Cinco minutos antes"
+			},
+			"month": "Mês",
+			"year": "Ano"
 		},
 		"editor": {
 			"edit": "Editar",
 			"heading1": "Título 1",
-			"heading1Tooltip": "Cabeçalho grande de seção.",
+			"heading1Tooltip": "Título de seção grande.",
 			"heading2": "Título 2",
-			"heading2Tooltip": "Cabeçalho médico de seção.",
+			"heading2Tooltip": "Título de seção médio.",
 			"heading3": "Título 3",
-			"heading3Tooltip": "Cabeçalho pequeno de seção.",
+			"heading3Tooltip": "Título de seção pequeno.",
 			"bold": "Negrito",
 			"italic": "Itálico",
 			"strikethrough": "Riscado",
@@ -480,7 +980,7 @@
 			"text": "Texto",
 			"textTooltip": "Apenas comece a escrever.",
 			"taskList": "Lista de tarefas",
-			"taskListTooltip": "Rastrear tarefas com uma lista de tarefas.",
+			"taskListTooltip": "Acompanhar tarefas com uma lista de verificação.",
 			"undo": "Desfazer",
 			"redo": "Refazer",
 			"placeholder": "Digite algum texto ou toque em '/' para ver mais opções…",
@@ -496,15 +996,28 @@
 				"deleteTable": "Remover tabela",
 				"mergeCells": "Mesclar células",
 				"splitCell": "Dividir célula",
-				"toggleHeaderColumn": "Ativar/Desativar cabeçalho de coluna",
-				"toggleHeaderRow": "Ativar/Desativar cabeçalho de linha",
-				"toggleHeaderCell": "Ativar/Desativar cabeçalho de célula",
+				"toggleHeaderColumn": "Alternar cabeçalho de coluna",
+				"toggleHeaderRow": "Alternar cabeçalho de linha",
+				"toggleHeaderCell": "Alternar cabeçalho de célula",
 				"mergeOrSplit": "Mesclar ou dividir",
 				"fixTables": "Corrigir tabelas"
+			},
+			"label": "Editor de texto formatado",
+			"urlPlaceholder": "URL",
+			"altText": "Texto alternativo",
+			"altTextPlaceholder": "Descreva esta imagem",
+			"toolbarLabel": "Formatação de texto",
+			"more": "Mais opções de formatação",
+			"emoji": {
+				"empty": "Nenhum emoji encontrado"
 			}
 		},
 		"multiselect": {
-			"selectPlaceholder": "Clique ou pressione Enter para selecionar"
+			"selectPlaceholder": "Clique ou pressione Enter para selecionar",
+			"createPlaceholder": "Criar",
+			"removeItem": "Remover este item",
+			"clear": "Limpar seleção",
+			"moreResultsHint": "Exibindo os primeiros {shown} de {total} resultados. Refine sua busca para encontrar os demais."
 		},
 		"datepickerRange": {
 			"to": "Para",
@@ -521,22 +1034,45 @@
 				"restOfThisMonth": "O resto deste mês",
 				"nextMonth": "Próximo mês",
 				"next30Days": "Próximos 30 dias",
-				"lastMonth": "Último mês",
+				"lastMonth": "Mês passado",
 				"thisYear": "Este ano",
-				"restOfThisYear": "O resto deste ano"
+				"restOfThisYear": "O resto deste ano",
+				"tomorrow": "Amanhã"
+			},
+			"date": "Data",
+			"values": {
+				"now": "Agora",
+				"startOfToday": "Início de hoje",
+				"endOfToday": "Fim de hoje",
+				"beginningOflastWeek": "Início da semana passada",
+				"endOfLastWeek": "Fim da semana passada",
+				"beginningOfThisWeek": "Início desta semana",
+				"endOfThisWeek": "Fim desta semana",
+				"startOfNextWeek": "Início da próxima semana",
+				"endOfNextWeek": "Fim da próxima semana",
+				"in7Days": "Daqui a 7 dias",
+				"beginningOfLastMonth": "Início do mês passado",
+				"endOfLastMonth": "Fim do mês passado",
+				"startOfThisMonth": "Início deste mês",
+				"endOfThisMonth": "Fim deste mês",
+				"startOfNextMonth": "Início do próximo mês",
+				"endOfNextMonth": "Fim do próximo mês",
+				"in30Days": "Daqui a 30 dias",
+				"startOfThisYear": "Início deste ano",
+				"endOfThisYear": "Fim deste ano"
 			}
 		},
 		"datemathHelp": {
-			"canuse": "Você pode usar matemática de data para filtrar datas relativas.",
+			"canuse": "Você pode usar operações com datas para filtrar datas relativas.",
 			"learnhow": "Veja como funciona",
-			"title": "Matemática de Data",
-			"intro": "Especifica datas relativas que serão calculadas em tempo real pela Apito de Mestre ao aplicar o filtro.",
-			"expression": "Cada expressão matemática de data começa com uma data de ancoragem, que pode ser {0} ou uma string de data terminada com {1}. Esta data de âncora pode ser opcionalmente seguida de uma ou mais expressões matemáticas.",
+			"title": "Operações com datas",
+			"intro": "Defina datas relativas que o Apito de Mestre calculará em tempo real ao aplicar o filtro.",
+			"expression": "Cada expressão começa com uma data de referência, que pode ser {0} ou uma data terminada em {1}. Essa referência pode ser seguida por uma ou mais operações.",
 			"similar": "Essas expressões são semelhantes às fornecidas por {0} e {1}.",
 			"add1Day": "Adicionar um dia",
 			"minus1Day": "Subtrair um dia",
-			"roundDay": "Arredondar para o valor mais próximo",
-			"supportedUnits": "Unidades de tempo suportados",
+			"roundDay": "Arredondar para o início do dia",
+			"supportedUnits": "Unidades de tempo disponíveis",
 			"someExamples": "Exemplos de expressões de tempo",
 			"units": {
 				"seconds": "Segundos",
@@ -556,12 +1092,13 @@
 				"in30Days": "Em 30 dias",
 				"datePlusMonth": "{0} mais um mês às 00:00 desse dia"
 			}
-		}
+		},
+		"projectColor": "Cor do projeto"
 	},
 	"task": {
 		"createSuccess": "A tarefa foi criada com sucesso.",
-		"doneSuccess": "A tarefa foi marcada como feita com sucesso.",
-		"undoneSuccess": "A tarefa foi desmarcada como feita com sucesso.",
+		"doneSuccess": "A tarefa foi concluída.",
+		"undoneSuccess": "A tarefa foi reaberta.",
 		"undo": "Desfazer",
 		"checklistTotal": "{checked} de {total} tarefas",
 		"checklistAllDone": "{total} tarefas",
@@ -570,21 +1107,25 @@
 			"overdue": "Mostrar tarefas atrasadas",
 			"fromuntil": "Tarefas de {from} até {until}",
 			"select": "Selecione um intervalo de datas",
-			"noTasks": "Nada a fazer — Tenha um ótimo dia!"
+			"noTasks": "Nada a fazer — Tenha um ótimo dia!",
+			"noDates": "Exibir tarefas sem data",
+			"filterByLabel": "Filtrando pela etiqueta {label}",
+			"clearLabelFilter": "Limpar filtro de etiqueta",
+			"savedFilterIgnored": "O filtro salvo da sua página inicial não é aplicado ao visualizar tarefas por etiqueta."
 		},
 		"detail": {
-			"chooseDueDate": "Clique aqui para definir a data de vencimento",
-			"chooseStartDate": "Clique aqui para definir uma data de início",
-			"chooseEndDate": "Clique aqui para definir uma data de término",
+			"chooseDueDate": "Clique para definir a data de entrega",
+			"chooseStartDate": "Clique para definir a data inicial",
+			"chooseEndDate": "Clique para definir a data final",
 			"move": "Mover tarefa para um projeto diferente",
-			"done": "Marcar tarefa como concluída!",
-			"undone": "Marcar como não concluído",
-			"created": "Criado {0} por {1}",
-			"updated": "Atualizado {0}",
-			"doneAt": "Concluído {0}",
+			"done": "Marcar tarefa como concluída",
+			"undone": "Marcar como não concluída",
+			"created": "Criada {0} por {1}",
+			"updated": "Atualizada {0}",
+			"doneAt": "Concluída {0}",
 			"updateSuccess": "A tarefa foi salva com sucesso.",
 			"belongsToProject": "Esta tarefa pertence ao projeto '{project}'",
-			"due": "Vence {at}",
+			"due": "Entrega {at}",
 			"organization": "Organização",
 			"management": "Administração",
 			"dateAndTime": "Data e hora",
@@ -592,66 +1133,97 @@
 				"assign": "Atribuir usuário",
 				"label": "Adicionar etiquetas",
 				"priority": "Definir prioridade",
-				"dueDate": "Definir prazo",
+				"dueDate": "Definir data de entrega",
 				"startDate": "Definir data de início",
 				"endDate": "Definir data de término",
 				"reminders": "Definir lembretes",
-				"repeatAfter": "Definir Intervalo para Repetição",
+				"repeatAfter": "Definir intervalo de repetição",
 				"percentDone": "Definir progresso",
 				"attachments": "Adicionar anexos",
-				"relatedTasks": "Adicionar Relação",
+				"relatedTasks": "Adicionar relação",
 				"moveProject": "Mover",
 				"color": "Definir cor",
 				"delete": "Excluir",
 				"favorite": "Adicionar aos favoritos",
-				"unfavorite": "Remover dos favoritos"
-			}
+				"unfavorite": "Remover dos favoritos",
+				"timeTracking": "Registrar tempo",
+				"duplicate": "Duplicar"
+			},
+			"removeDueDate": "Remover data de entrega",
+			"removeStartDate": "Remover data inicial",
+			"removeEndDate": "Remover data final",
+			"removeRepeat": "Remover intervalo de repetição",
+			"removeAssignee": "Remover {user} dos responsáveis",
+			"titleRequired": "O título da tarefa não pode ficar vazio.",
+			"deleteSuccess": "A tarefa foi movida para a lixeira.",
+			"duplicateSuccess": "A tarefa foi duplicada.",
+			"noBucket": "Sem coluna",
+			"bucketSelectLabel": "Coluna do Kanban: {bucket}",
+			"bucketChangedSuccess": "A coluna da tarefa foi alterada.",
+			"back": "Voltar ao projeto",
+			"overdue": "Atrasada",
+			"closeTaskDetail": "Fechar detalhes da tarefa",
+			"title": "Detalhes da tarefa",
+			"markAsDone": "Marcar '{task}' como concluída",
+			"scrollToBottom": "Ir para o fim"
 		},
 		"attributes": {
 			"assignees": "Responsáveis",
 			"color": "Cor",
-			"created": "Criado",
-			"createdBy": "Criador por",
+			"created": "Criada em",
+			"createdBy": "Criada por",
 			"description": "Descrição",
-			"done": "Concluído",
-			"dueDate": "Data de vencimento",
-			"endDate": "Data de término",
+			"done": "Concluída",
+			"dueDate": "Data de entrega",
+			"endDate": "Data final",
 			"labels": "Etiquetas",
 			"percentDone": "Progresso",
 			"priority": "Prioridade",
 			"relatedTasks": "Tarefas relacionadas",
 			"reminders": "Lembretes",
 			"repeat": "Repetir",
-			"startDate": "Data de ínicio",
+			"startDate": "Data inicial",
 			"title": "Título",
-			"updated": "Atualizado"
+			"updated": "Atualizada em",
+			"project": "Projeto",
+			"comment": "{count} comentário | {count} comentários",
+			"commentCount": "Quantidade de comentários",
+			"attachment": "{count} anexo | {count} anexos",
+			"doneAt": "Concluída em"
 		},
 		"subscription": {
-			"subscribedProject": "Você está atualmente inscrito para esse projeto e receberá notificações de alterações.",
-			"notSubscribedProject": "Você não está inscrito para este projeto e não receberá notificações para alterações.",
-			"subscribedTask": "Você está atualmente inscrito a essa tarefa e receberá notificações de alterações.",
-			"notSubscribedTask": "Você não está inscrito nesta tarefa e não receberá notificações para as alterações.",
-			"subscribe": "Inscrever-se",
-			"unsubscribe": "Desinscrever-se",
-			"subscribeSuccessProject": "Você agora está inscrito neste projeto",
-			"unsubscribeSuccessProject": "Você agora não está inscrito neste projeto",
-			"subscribeSuccessTask": "Você agora está inscrito neste projeto",
-			"unsubscribeSuccessTask": "Você agora não está mais inscrito nesta tarefa"
+			"subscribedProject": "Você acompanha este projeto e receberá notificações de alterações.",
+			"notSubscribedProject": "Você não acompanha este projeto e não receberá notificações de alterações.",
+			"subscribedTask": "Você acompanha esta tarefa e receberá notificações de alterações.",
+			"notSubscribedTask": "Você não acompanha esta tarefa e não receberá notificações de alterações.",
+			"subscribe": "Acompanhar",
+			"unsubscribe": "Parar de acompanhar",
+			"subscribeSuccessProject": "Você está acompanhando este projeto.",
+			"unsubscribeSuccessProject": "Você parou de acompanhar este projeto.",
+			"subscribeSuccessTask": "Você está acompanhando esta tarefa.",
+			"unsubscribeSuccessTask": "Você parou de acompanhar esta tarefa.",
+			"subscribedTaskThroughProject": "Você acompanha esta tarefa pela assinatura do projeto. Cancelar a assinatura aqui interrompe apenas as notificações desta tarefa.",
+			"subscribedProjectThroughParentProject": "Você acompanha este projeto pela assinatura de um projeto superior. Cancelar a assinatura aqui interrompe as notificações deste projeto e de todo o seu conteúdo."
 		},
 		"attachment": {
 			"title": "Anexos",
 			"createdBy": "criado {0} por {1}",
-			"downloadTooltip": "Transferir este anexo",
+			"downloadTooltip": "Baixar este anexo",
 			"upload": "Enviar anexo",
+			"uploadFailed": "Não foi possível enviar o anexo. Tente novamente.",
 			"drop": "Solte os arquivos aqui para enviar",
 			"delete": "Excluir anexo",
 			"deleteTooltip": "Excluir este anexo",
 			"deleteText1": "Tem certeza que deseja excluir o anexo {filename}?",
-			"copyUrlTooltip": "Copie a Url deste anexo para o uso no texto",
-			"setAsCover": "Criar capa",
+			"copyUrlTooltip": "Copiar a URL deste anexo para usar no texto",
+			"setAsCover": "Definir como capa",
 			"unsetAsCover": "Remover a capa",
 			"successfullyChangedCoverImage": "A imagem de capa foi alterada com sucesso.",
-			"usedAsCover": "Imagem da capa"
+			"usedAsCover": "Imagem da capa",
+			"deleteSuccess": "O anexo foi excluído.",
+			"play": "Reproduzir",
+			"playFile": "Reproduzir {file}",
+			"audioError": "Não foi possível reproduzir este arquivo de áudio."
 		},
 		"comment": {
 			"title": "Comentários",
@@ -663,10 +1235,16 @@
 			"delete": "Apagar este comentário",
 			"deleteText1": "Tem certeza que deseja apagar este comentário?",
 			"deleteSuccess": "O comentário foi apagado com sucesso.",
-			"addedSuccess": "O comentário foi adicionado com sucesso."
+			"addedSuccess": "O comentário foi adicionado com sucesso.",
+			"permalink": "Copiar link permanente deste comentário",
+			"sortNewestFirst": "Mais recentes primeiro",
+			"sortOldestFirst": "Mais antigos primeiro",
+			"reply": "Responder",
+			"jumpToOriginal": "Ir para o comentário original",
+			"deletedComment": "comentário excluído"
 		},
 		"deferDueDate": {
-			"title": "Data de vencimento antecipada",
+			"title": "Adiar data de entrega",
 			"1day": "1 dia",
 			"3days": "3 dias",
 			"1week": "1 semana"
@@ -678,7 +1256,7 @@
 			"placeholder": "Digite para atribuir um usuário…",
 			"selectPlaceholder": "Atribuir este usuário",
 			"assignSuccess": "O usuário foi atribuído com sucesso.",
-			"unassignSuccess": "O usuário foi desatribuído com sucesso."
+			"unassignSuccess": "O usuário foi removido dos responsáveis."
 		},
 		"label": {
 			"createPlaceholder": "Adicionar como nova etiqueta",
@@ -686,10 +1264,14 @@
 			"removeSuccess": "A etiqueta foi removida com sucesso.",
 			"addCreateSuccess": "A etiqueta foi criada e adicionada com sucesso.",
 			"delete": {
-				"header": "Excluir este marcador",
-				"text1": "Tem certeza de que deseja excluir este marcador?",
-				"text2": "Isto irá removê-lo de todas as tarefas e não pode ser restaurado."
-			}
+				"header": "Excluir esta etiqueta",
+				"text1": "Tem certeza de que deseja excluir esta etiqueta?",
+				"text2": "Ela será removida de todas as tarefas. Esta ação não pode ser desfeita."
+			},
+			"placeholder": "Digite para adicionar uma etiqueta…",
+			"linkShareCannotCreate": "Não é possível criar etiquetas por um link de compartilhamento. Só é possível adicionar etiquetas já usadas neste projeto.",
+			"removeLabel": "Remover etiqueta {label}",
+			"createFailed": "Estas etiquetas não puderam ser criadas e não foram adicionadas: {labels}"
 		},
 		"priority": {
 			"unset": "Indefinida",
@@ -701,54 +1283,60 @@
 		},
 		"relation": {
 			"add": "Adicionar uma nova relação de tarefas",
-			"new": "Nova Relação de Tarefas",
+			"new": "Nova relação entre tarefas",
 			"differentProject": "Esta tarefa pertence a um projeto diferente.",
 			"noneYet": "Ainda não há relações de tarefas.",
-			"delete": "Excluir Relação Entre Tarefas",
+			"delete": "Excluir relação entre tarefas",
 			"deleteText1": "Tem certeza que deseja excluir esta relação entre tarefas?",
 			"select": "Selecione um tipo de relação",
 			"taskRequired": "Por favor, selecione uma tarefa ou digite um novo título para a tarefa.",
 			"kinds": {
 				"subtask": "Subtarefa | Subtarefas",
-				"parenttask": "Tarefa Pai | Tarefas Pais",
-				"related": "Tarefa Relacionada | Tarefas relacionadas",
-				"duplicateof": "Duplicar de | Duplicatas de",
-				"duplicates": "Duplica | Duplicadas",
-				"blocking": "Bloqueando | Bloqueando",
-				"blocked": "Bloqueado por | Bloqueado por",
-				"precedes": "Precede | Precedes",
-				"follows": "Seguindo | Seguidores",
-				"copiedfrom": "Copiado a partir de | copiado de",
-				"copiedto": "Copiado para | Copiado Para"
-			}
+				"parenttask": "Tarefa superior | Tarefas superiores",
+				"related": "Tarefa relacionada | Tarefas relacionadas",
+				"duplicateof": "Duplicata de | Duplicata de",
+				"duplicates": "Duplica | Duplica",
+				"blocking": "Bloqueia | Bloqueia",
+				"blocked": "Bloqueada por | Bloqueada por",
+				"precedes": "Precede | Precede",
+				"follows": "Sucede | Sucede",
+				"copiedfrom": "Copiada de | Copiada de",
+				"copiedto": "Copiada para | Copiada para"
+			},
+			"searchPlaceholder": "Busque uma tarefa para adicionar como relacionada…",
+			"createPlaceholder": "Adicionar como tarefa relacionada"
 		},
 		"reminder": {
 			"before": "{amount} {unit} antes de {type}",
-			"after": "{amount} {unit} antes de {type}",
+			"after": "{amount} {unit} depois de {type}",
 			"beforeShort": "antes",
 			"afterShort": "depois",
-			"onDueDate": "Na data de vencimento",
-			"onStartDate": "Na data de início",
-			"onEndDate": "Na data de término",
+			"onDueDate": "Na data de entrega",
+			"onStartDate": "Na data inicial",
+			"onEndDate": "Na data final",
 			"custom": "Personalizado",
-			"dateAndTime": "Data e hora"
+			"dateAndTime": "Data e hora",
+			"periodUnit": "Unidade de tempo",
+			"periodDirection": "Antes ou depois",
+			"periodRelativeTo": "Relativo a"
 		},
 		"repeat": {
 			"everyDay": "Diariamente",
 			"everyWeek": "Toda semana",
 			"every30d": "A cada 30 dias",
-			"mode": "Modo repetição",
+			"mode": "Modo de repetição",
 			"monthly": "Mensalmente",
 			"each": "Cada",
 			"specifyAmount": "Especifique uma quantidade…",
 			"hours": "Horas",
 			"days": "Dias",
 			"weeks": "Semanas",
-			"invalidAmount": "Por favor, insira mais de 0."
+			"invalidAmount": "Informe um valor maior que 0.",
+			"fromCurrentDate": "A partir da data de conclusão"
 		},
 		"quickAddMagic": {
-			"hint": "Use prefixos mágicos para definir datas de vencimento, responsáveis e outras propriedades da tarefa.",
-			"title": "Adição Mágica Rápida",
+			"hint": "Use prefixos de adição rápida para definir datas de entrega, responsáveis e outras propriedades da tarefa.",
+			"title": "Adição rápida",
 			"intro": "Ao criar uma tarefa, você pode usar palavras-chave especiais para adicionar diretamente atributos à tarefa recém-criada. Isto permite adicionar atributos comumente usados a tarefas muito mais rápido.",
 			"multiple": "Você pode usar esta opção várias vezes.",
 			"label1": "Para adicionar uma etiqueta, basta prefixar o nome da etiqueta com {prefix}.",
@@ -760,52 +1348,67 @@
 			"assignees": "Para atribuir diretamente a tarefa a um usuário, adicione seu nome de usuário com o prefixo {prefix} à tarefa.",
 			"project1": "Para definir um projeto para a tarefa aparecer, insira seu nome com o prefixo {prefix}.",
 			"project2": "Isto retornará um erro se o projeto não existir.",
-			"project3": "Para usar espaços, basta adicionar um \" ou ' ao redor do nome da etiqueta.",
-			"project4": "Por exemplo: {prefix}\"Etiqueta com espaços\".",
+			"project3": "Para usar espaços, coloque o nome do projeto entre aspas simples ou duplas.",
+			"project4": "Por exemplo: {prefix}\"Projeto com espaços\".",
 			"dateAndTime": "Data e hora",
-			"date": "Qualquer data será usada como data de vencimento para a nova tarefa. Você pode usar datas em qualquer um desses formatos:",
+			"date": "As datas informadas serão usadas como data de entrega da nova tarefa. Você pode usar qualquer um destes formatos:",
 			"dateCurrentYear": "usará o ano atual",
-			"dateNth": "usará o {day} dia do mês atual",
+			"dateNth": "usará o dia {day} do mês atual",
 			"dateTime": "Combine qualquer um dos formatos de data com \"{time}\" (ou {timePM}) para definir uma hora.",
 			"repeats": "Tarefas recorrentes",
-			"repeatsDescription": "Para definir uma tarefa como repetição em um intervalo, basta adicionar '{suffix}' ao texto da tarefa. A quantidade precisa ser um número e pode ser omitida para usar apenas o tipo (veja exemplos)."
+			"repeatsDescription": "Para definir uma tarefa como repetição em um intervalo, basta adicionar '{suffix}' ao texto da tarefa. A quantidade precisa ser um número e pode ser omitida para usar apenas o tipo (veja exemplos).",
+			"quickEntryHint": "Use os prefixos de adição rápida para datas, etiquetas e outros dados. Abra o aplicativo principal Apito de Mestre e confira a dica no campo de tarefa para saber mais.",
+			"dateWeekday": "qualquer dia da semana; usa a próxima ocorrência desse dia"
+		},
+		"new": "Criar uma tarefa",
+		"bulkCreateUnexpectedResponse": "O servidor retornou uma quantidade inesperada de tarefas criadas.",
+		"addReminder": "Adicionar um lembrete…",
+		"removeReminder": "Remover este lembrete",
+		"readOnlyCheckbox": "Você tem acesso somente de leitura a esta tarefa e não pode marcá-la como concluída.",
+		"movedToProject": "A tarefa foi movida para {project}.",
+		"mention": {
+			"noUsersFound": "Nenhum usuário encontrado"
 		}
 	},
 	"team": {
 		"title": "Equipes",
 		"noTeams": "Atualmente você não faz parte de nenhuma equipe.",
 		"create": {
-			"success": "A equipe foi criada com sucesso."
+			"success": "A equipe foi criada com sucesso.",
+			"title": "Criar uma equipe"
 		},
 		"edit": {
-			"title": "Editar Equipe \"{team}\"",
+			"title": "Editar equipe \"{team}\"",
 			"members": "Membros da equipe",
 			"search": "Digite para pesquisar um usuário…",
 			"addUser": "Adicionar à equipe",
-			"makeMember": "Tornar Membro",
+			"makeMember": "Tornar membro",
 			"makeAdmin": "Tornar administrador",
 			"success": "A equipe foi atualizada com sucesso.",
 			"userAddedSuccess": "O membro da equipe foi adicionado com sucesso.",
-			"madeMember": "O integrante da equipe foi promovido a membro com sucesso.",
+			"madeMember": "O usuário foi definido como membro da equipe.",
 			"madeAdmin": "O membro da equipe foi promovido a administrador com sucesso.",
 			"mustSelectUser": "Por favor, selecione um usuário.",
 			"delete": {
 				"header": "Excluir a equipe",
 				"text1": "Tem certeza de que deseja excluir esta equipe e todos os seus membros?",
 				"text2": "Todos os membros da equipe perderão acesso a projetos compartilhados com esta equipe. Isso NÃO PODERÁ SER DESFEITO!",
-				"success": "A equipe foi excluída com sucesso."
+				"success": "A equipe foi excluída com sucesso.",
+				"cleanupText": "Nos projetos aos quais os membros da equipe perderem acesso, também serão excluídos:"
 			},
 			"deleteUser": {
 				"header": "Remover um usuário da equipe",
 				"text1": "Tem certeza de que deseja remover este usuário da sua equipe?",
-				"text2": "Eles perderão acesso a todos os projetos aos quais esta equipe tem acesso. Isso NÃO PODERÁ SER DESFAZENO!",
-				"success": "O usuário foi removido da equipe com sucesso."
+				"text2": "O usuário perderá acesso a todos os projetos compartilhados com esta equipe. Esta ação não pode ser desfeita.",
+				"success": "O usuário foi removido da equipe com sucesso.",
+				"cleanupText": "Nos projetos aos quais este usuário perder acesso, também serão excluídos:"
 			},
 			"leave": {
-				"title": "Sair da Equipe",
+				"title": "Sair da equipe",
 				"text1": "Tem certeza de que deseja sair desta equipe?",
 				"text2": "Você perderá acesso a todos os projetos aos quais esta equipe tem acesso. Se mudar de ideia, você precisará de um administrador de equipe para adicioná-lo novamente.",
-				"success": "Você deixou a equipe com sucesso."
+				"success": "Você deixou a equipe com sucesso.",
+				"cleanupText": "Nos projetos aos quais você perder acesso, também serão excluídos:"
 			}
 		},
 		"attributes": {
@@ -815,7 +1418,9 @@
 			"description": "Descrição",
 			"descriptionPlaceholder": "Descreva a equipe aqui, aperte '/' para mais opções…",
 			"admin": "Administrador",
-			"member": "Membro"
+			"member": "Membro",
+			"isPublic": "Equipe pública",
+			"isPublicDescription": "Permite que a equipe seja encontrada publicamente. Quando ativado, qualquer pessoa pode compartilhar projetos com esta equipe, mesmo sem fazer parte dela."
 		}
 	},
 	"keyboardShortcuts": {
@@ -824,15 +1429,15 @@
 		"allPages": "Estes atalhos funcionam em todas as páginas.",
 		"currentPageOnly": "Estes atalhos funcionam somente na página atual.",
 		"somePagesOnly": "Estes atalhos funcionam somente em algumas páginas.",
-		"toggleMenu": "Ativar/Desativar o Menu",
-		"quickSearch": "Abrir a barra de ação/pesquisa rápida",
+		"toggleMenu": "Exibir ou ocultar menu",
+		"quickSearch": "Abrir busca e ações rápidas",
 		"then": "então",
 		"task": {
 			"title": "Página de tarefas",
-			"done": "Marcar tarefa como concluída / desfeita",
+			"done": "Marcar tarefa como concluída ou não concluída",
 			"assign": "Atribuir esta tarefa a um usuário",
 			"labels": "Adicionar etiquetas a esta tarefa",
-			"dueDate": "Alterar a data de vencimento desta tarefa",
+			"dueDate": "Alterar a data de entrega desta tarefa",
 			"attachment": "Adicionar um anexo a esta tarefa",
 			"related": "Modificar as tarefas relacionadas desta tarefa",
 			"color": "Alterar a cor desta tarefa",
@@ -842,13 +1447,19 @@
 			"delete": "Excluir esta tarefa",
 			"priority": "Alterar a prioridade desta tarefa",
 			"favorite": "Marcar esta tarefa como favorita / não favorita",
-			"save": "Salvar a tarefa atual"
+			"save": "Salvar a tarefa atual",
+			"doneAndBack": "Concluir a tarefa e voltar",
+			"openProject": "Abrir o projeto desta tarefa",
+			"copyIdentifier": "Copiar identificador da tarefa",
+			"copyIdentifierAndTitle": "Copiar identificador e título da tarefa",
+			"copyIdentifierTitleAndUrl": "Copiar identificador, título e URL da tarefa",
+			"copyUrl": "Copiar URL da tarefa"
 		},
 		"project": {
-			"title": "Exibição de Projeto",
+			"title": "Visualização do projeto",
 			"switchToListView": "Alternar para visualização em lista",
-			"switchToGanttView": "Alternar para visualização em gantt",
-			"switchToKanbanView": "Trocar para visão reduzida",
+			"switchToGanttView": "Alternar para visualização de Gantt",
+			"switchToKanbanView": "Alternar para visualização Kanban",
 			"switchToTableView": "Alternar para exibição de tabela"
 		},
 		"navigation": {
@@ -858,6 +1469,21 @@
 			"labels": "Navegar para etiquetas",
 			"teams": "Navegar para equipes",
 			"projects": "Navegar para projetos"
+		},
+		"list": {
+			"title": "Lista de tarefas",
+			"navigateDown": "Selecionar próxima tarefa",
+			"navigateUp": "Selecionar tarefa anterior",
+			"open": "Abrir tarefa selecionada"
+		},
+		"gantt": {
+			"title": "Gráfico de Gantt",
+			"moveTaskLeft": "Mover a tarefa para uma data anterior",
+			"moveTaskRight": "Mover a tarefa para uma data posterior",
+			"expandTaskLeft": "Antecipar a data inicial da tarefa",
+			"expandTaskRight": "Adiar a data final da tarefa",
+			"shrinkTaskLeft": "Reduzir a tarefa pela data inicial",
+			"shrinkTaskRight": "Reduzir a tarefa pela data final"
 		}
 	},
 	"update": {
@@ -871,16 +1497,20 @@
 		"delete": "Excluir",
 		"unarchive": "Desarquivar",
 		"share": "Compartilhar",
-		"createProject": "Criar projeto"
+		"createProject": "Criar projeto",
+		"setBackground": "Configurações do plano de fundo",
+		"cantArchiveIsDefault": "Você não pode arquivar seu projeto padrão.",
+		"cantDeleteIsDefault": "Você não pode excluir seu projeto padrão.",
+		"views": "Visualizações"
 	},
 	"apiConfig": {
-		"url": "Apito de Mestre URL",
+		"url": "URL do Apito de Mestre",
 		"urlPlaceholder": "ex. https://localhost:3456",
 		"change": "alterar",
-		"use": "Usando a instalação Apito de Mestre em \"{0}",
-		"error": "Não foi possível encontrar ou utilizar a instalação Apito de Mestre em \"{domain}\". Por favor, verifique se a URL tem o formato correto e se você pode acessá-la diretamente e tentar novamente.",
-		"success": "Usando a instalação Apito de Mestre em \"{domain}\".",
-		"urlRequired": "Uma url é necessária."
+		"use": "Usando o Apito de Mestre em {0}",
+		"error": "Não foi possível acessar o Apito de Mestre em \"{domain}\". Confira o formato da URL, verifique se consegue acessá-la diretamente e tente novamente.",
+		"success": "Usando o Apito de Mestre em \"{domain}\".",
+		"urlRequired": "Informe uma URL."
 	},
 	"loadingError": {
 		"failed": "Falha ao carregar, por favor {0}. Se o erro persistir, por favor {1}.",
@@ -891,7 +1521,14 @@
 		"title": "Notificações",
 		"none": "Você não tem nenhuma notificação. Tenha um bom dia!",
 		"markAllRead": "Marcar todas as notificações como lidas",
-		"markAllReadSuccess": "Todas as notificações marcadas como lidas."
+		"markAllReadSuccess": "Todas as notificações marcadas como lidas.",
+		"explainer": "As notificações aparecerão aqui quando houver atividades nos projetos e tarefas que você acompanha.",
+		"read": "Lida",
+		"unread": "Não lida",
+		"subscribeFeed": "Acompanhar notificações pelo feed Atom",
+		"clearAll": "Limpar notificações",
+		"clearAllSuccess": "Todas as notificações foram limpas.",
+		"loadMore": "Carregar notificações antigas"
 	},
 	"quickActions": {
 		"commands": "Comandos",
@@ -910,6 +1547,17 @@
 			"newTask": "Nova tarefa",
 			"newProject": "Novo projeto",
 			"newTeam": "Nova equipe"
+		},
+		"title": "Busca e ações rápidas",
+		"notLoggedIn": "Primeiro, entre na janela principal do Apito de Mestre.",
+		"removePrefillDescription": "Remover a descrição",
+		"results": "Nenhum resultado | {count} resultado | {count} resultados",
+		"resultTypes": {
+			"command": "Comando",
+			"task": "Tarefa",
+			"project": "Projeto",
+			"team": "Equipe",
+			"label": "Etiqueta"
 		}
 	},
 	"error": {
@@ -928,7 +1576,7 @@
 		"1018": "Configuração do tipo de avatar do usuário é inválida.",
 		"2001": "O ID não pode estar vazio ou 0.",
 		"2002": "Alguns dos dados da requisição eram inválidos.",
-		"3001": "O Projeto não existe.",
+		"3001": "O projeto não existe.",
 		"3004": "Você precisa ter permissões de leitura nesse projeto para executar essa ação.",
 		"3005": "O título do projeto não pode estar em branco.",
 		"3006": "O compartilhamento de projeto não existe.",
@@ -936,8 +1584,8 @@
 		"3008": "O projeto está arquivado e, portanto, só pode ser acessado como somente leitura. Isso também se aplica a todas as tarefas associadas a este projeto.",
 		"4003": "Todas as tarefas da edição em massa devem pertencer ao mesmo projeto.",
 		"4004": "Precisa de pelo menos uma tarefa quando há edição em massa de tarefas.",
-		"4005": "Você não tem o direito de ver a tarefa.",
-		"4006": "Você não pode definir uma tarefa pai como tarefa em si.",
+		"4005": "Você não tem permissão para visualizar esta tarefa.",
+		"4006": "Uma tarefa não pode ser sua própria tarefa superior.",
 		"4007": "Você não pode criar uma relação de tarefa com um tipo de relação inválido.",
 		"4008": "Não é possível criar uma relação de tarefa que já existe.",
 		"4009": "A relação de tarefa não existe.",
@@ -954,7 +1602,7 @@
 		"6001": "O nome da equipe não pode estar vazio.",
 		"6002": "A equipe não existe.",
 		"6004": "A equipe já tem acesso a esse projeto.",
-		"6005": "Usuário já é um membro deste grupo.",
+		"6005": "O usuário já é membro desta equipe.",
 		"6006": "Não é possível excluir o último membro da equipe.",
 		"6007": "A equipe não tem acesso ao projeto para executar essa ação.",
 		"7002": "O usuário já tem acesso a esse projeto.",
@@ -963,22 +1611,97 @@
 		"8002": "A etiqueta não existe.",
 		"8003": "Você não tem acesso a esta etiqueta.",
 		"9001": "Caminho inválido.",
-		"10001": "O bucket não existe.",
-		"10002": "O bucket não pertence a esse projeto.",
-		"10003": "Você não pode remover o último bucket em um projeto.",
-		"10004": "Você não pode adicionar a tarefa a este bucket, pois ela já excedeu o limite de tarefas que ele pode manter.",
-		"10005": "Só pode haver um bucket concluído por projecto.",
+		"10001": "A coluna não existe.",
+		"10002": "A coluna não pertence a este projeto.",
+		"10003": "Você não pode remover a última coluna de um projeto.",
+		"10004": "Você não pode adicionar a tarefa a esta coluna porque o limite de tarefas foi atingido.",
+		"10005": "Só pode haver uma coluna de tarefas concluídas por projeto.",
 		"11001": "O filtro salvo não existe.",
 		"11002": "Filtros salvos não estão disponíveis para compartilhamentos de links.",
-		"12001": "A entidade de subscrição é inválida.",
-		"12002": "Você já assinou a entidade em si ou uma entidade pai.",
+		"12001": "O item da assinatura é inválido.",
+		"12002": "Você já acompanha este item ou um item superior.",
 		"13001": "Este link compartilhado requer uma senha para autenticação, mas nenhum foi fornecido.",
 		"error": "Erro",
 		"success": "Sucesso",
-		"0001": "Você não tem permissão para fazer isto."
+		"0001": "Você não tem permissão para fazer isto.",
+		"1015": "A autenticação TOTP já está ativada para este usuário.",
+		"1016": "A autenticação TOTP não está ativada para este usuário.",
+		"1017": "O código TOTP é inválido.",
+		"1019": "O provedor OpenID não informou um endereço de e-mail. Verifique se o provedor disponibiliza um endereço de e-mail para sua conta.",
+		"1020": "Esta conta está desativada. Confira seus e-mails ou consulte o administrador.",
+		"1021": "Esta conta é gerenciada por um provedor externo de autenticação.",
+		"1022": "O nome de usuário não pode conter espaços.",
+		"1023": "Esta ação não está disponível pelo link de compartilhamento.",
+		"1024": "Dados de identificação inválidos para o campo {field} do tipo {type}.",
+		"1025": "O fuso horário '{timezone}' é inválido. Selecione um fuso horário válido na lista.",
+		"1035": "Não há alteração de e-mail pendente para confirmar.",
+		"1036": "Aguarde um minuto antes de solicitar outro e-mail de confirmação.",
+		"1038": "O escopo personalizado definido pelo provedor OIDC está malformado. Verifique se o provedor OpenID define os dados do escopo corretamente, especialmente o oidcID.",
+		"1039": "Este código TOTP já foi usado. Aguarde o próximo código.",
+		"1040": "Esta conta está bloqueada por excesso de tentativas de acesso. Redefina sua senha para desbloqueá-la.",
+		"1041": "Muitas tentativas sem sucesso. Aguarde alguns minutos e tente novamente.",
+		"2003": "O fuso horário '{timezone}' é inválido.",
+		"2005": "Este link de convite é inválido ou expirou.",
+		"2006": "Este link de convite não existe.",
+		"2007": "Equipes gerenciadas externamente não podem ser associadas a um link de convite.",
+		"3016": "O projeto superior está arquivado. Desarquive-o primeiro.",
+		"3017": "O projeto padrão deve permitir que você faça alterações.",
+		"3018": "Este projeto está na lixeira. Restaure-o primeiro.",
+		"3019": "O projeto superior está na lixeira. Restaure-o primeiro.",
+		"3020": "Esta estrutura de projetos é grande demais para ser movida para o projeto superior selecionado.",
+		"4001": "O título da tarefa não pode ficar vazio.",
+		"4002": "A tarefa não existe.",
+		"4020": "Este anexo não pertence à tarefa.",
+		"4021": "Este usuário já é responsável pela tarefa.",
+		"4022": "Informe a data de referência do lembrete.",
+		"4023": "Não é possível criar um ciclo de relações entre tarefas.",
+		"4034": "O arquivo não existe.",
+		"4035": "O arquivo enviado excede o tamanho máximo configurado.",
+		"4040": "Esta tarefa está na lixeira.",
+		"4041": "Esta estrutura de tarefas é grande demais para adicionar mais subtarefas ou tarefas superiores.",
+		"6008": "Nenhuma equipe foi encontrada para o identificador OIDC e emissor informados.",
+		"6009": "Nenhuma equipe com a propriedade oidcId foi encontrada para o usuário.",
+		"10007": "Uma visualização de projeto pode ter no máximo 100 colunas.",
+		"12003": "Você precisa informar um usuário para consultar as assinaturas.",
+		"13002": "A senha do link de compartilhamento é inválida.",
+		"13003": "O token do link de compartilhamento é inválido.",
+		"14001": "O token de API informado é inválido.",
+		"14002": "A permissão {permission} do grupo {group} é inválida.",
+		"14005": "Já existe uma importação deste serviço em andamento. Aguarde a conclusão.",
+		"14009": "O arquivo ZIP não contém dados do Apito de Mestre. Envie uma exportação do Apito de Mestre.",
+		"14010": "Não foi possível ler o arquivo informado. Verifique se ele é um arquivo de exportação válido.",
+		"14011": "O arquivo informado não é um ZIP válido.",
+		"14012": "O arquivo informado não contém dados.",
+		"14013": "A exportação foi criada em uma versão do Apito de Mestre antiga demais para importar. Crie uma nova exportação em uma versão mais recente.",
+		"14016": "Não foi possível ler a configuração da importação. Verifique se ela é um objeto JSON válido.",
+		"14018": "A importação contém mais itens que o limite configurado.",
+		"14019": "O estado da importação é inválido ou expirou. Inicie a importação novamente.",
+		"14020": "Um dos projetos importados tem mais visualizações que o permitido.",
+		"14041": "A coluna {column} foi associada mais de uma vez. Associe cada coluna a apenas um atributo.",
+		"14042": "A linha {row} do arquivo CSV tem mais de {max} etiquetas.",
+		"14201": "O Planka recusou as credenciais informadas. Confira a URL e a chave de API ou o nome de usuário e a senha.",
+		"14202": "A conta do Planka exige uma etapa adicional de acesso (código de dois fatores ou aceitação dos termos). Entre uma vez no Planka pelo navegador ou use uma chave de API em vez de nome de usuário e senha.",
+		"14203": "Informe a URL do Planka e uma chave de API ou nome de usuário e senha.",
+		"14204": "Não foi possível acessar a API do Planka na URL informada. Confira a URL e se o Apito de Mestre consegue acessar a instalação.",
+		"14205": "A URL do Planka aponta para um endereço de rede privada ou local, bloqueado por padrão pelo Apito de Mestre. Um administrador pode permitir o acesso definindo outgoingrequests.allownonroutableips como true.",
+		"15002": "Esta conta do provedor de identidade já está vinculada a outra conta Apito de Mestre.",
+		"15003": "Você já vinculou uma conta deste provedor. Desvincule-a primeiro.",
+		"15004": "Esta conta vinculada não existe.",
+		"generic": "Não foi possível concluir esta ação. Tente novamente.",
+		"network": "Não foi possível conectar ao servidor. Verifique sua conexão e tente novamente.",
+		"unauthorized": "É necessário entrar na sua conta para continuar.",
+		"forbidden": "Você não tem permissão para realizar esta ação.",
+		"notFound": "O item solicitado não foi encontrado.",
+		"rateLimited": "Muitas solicitações. Aguarde um momento e tente novamente.",
+		"server": "O servidor não conseguiu concluir esta ação. Tente novamente mais tarde.",
+		"unavailable": "O serviço está temporariamente indisponível. Tente novamente mais tarde."
 	},
 	"about": {
-		"title": "Sobre"
+		"title": "Sobre",
+		"version": "Versão: {version}",
+		"frontendVersion": "Versão da interface: {version}",
+		"apiVersion": "Versão da API: {version}",
+		"proActive": "Pro ativo"
 	},
 	"time": {
 		"units": {
@@ -988,6 +1711,210 @@
 			"days": "dia|dias",
 			"weeks": "semana|semanas",
 			"years": "ano|anos"
+		},
+		"justNow": "agora mesmo"
+	},
+	"sorting": {
+		"manually": "Manualmente",
+		"apply": "Aplicar ordenação",
+		"description": "Escolha como ordenar as tarefas desta lista. Na ordenação manual, você pode arrastar e soltar as tarefas para reorganizá-las.",
+		"options": {
+			"titleAsc": "Título (A–Z)",
+			"titleDesc": "Título (Z–A)",
+			"priorityDesc": "Prioridade (maior primeiro)",
+			"priorityAsc": "Prioridade (menor primeiro)",
+			"dueDateAsc": "Data de entrega (mais próxima primeiro)",
+			"dueDateDesc": "Data de entrega (mais distante primeiro)",
+			"startDateAsc": "Data inicial (mais próxima primeiro)",
+			"startDateDesc": "Data inicial (mais distante primeiro)",
+			"endDateAsc": "Data final (mais próxima primeiro)",
+			"endDateDesc": "Data final (mais distante primeiro)",
+			"percentDoneDesc": "Porcentagem concluída (maior primeiro)",
+			"percentDoneAsc": "Porcentagem concluída (menor primeiro)",
+			"createdDesc": "Criação (mais recente primeiro)",
+			"createdAsc": "Criação (mais antiga primeiro)",
+			"updatedDesc": "Atualização (mais recente primeiro)",
+			"updatedAsc": "Atualização (mais antiga primeiro)"
 		}
+	},
+	"reaction": {
+		"reactedWith": "{user} reagiu com {value}",
+		"reactedWithAnd": "{users} e {lastUser} reagiram com {value}",
+		"reactedWithAndMany": "{users} e mais {num} pessoas reagiram com {value}",
+		"add": "Adicionar sua reação"
+	},
+	"timeTracking": {
+		"title": "Registro de tempo",
+		"stop": "Parar cronômetro",
+		"running": "Cronômetro em andamento",
+		"logTime": "Registrar tempo",
+		"editEntry": "Editar registro",
+		"commentLabel": "Comentário",
+		"form": {
+			"task": "Tarefa",
+			"taskSearch": "Buscar uma tarefa…",
+			"commentPlaceholder": "No que você trabalhou?",
+			"save": "Salvar registro",
+			"startTimer": "Iniciar cronômetro",
+			"update": "Atualizar registro",
+			"smartFill": "Preencher a partir do último registro",
+			"endsSpanningEntriesAt": "Iniciar este cronômetro encerra os seus registros de tempo sobrepostos às {time}.",
+			"privateHint": "Sem projeto ou tarefa, só você pode ver este registro."
+		},
+		"list": {
+			"emptyTask": "Ainda não há tempo registrado para esta tarefa.",
+			"emptyFiltered": "Não há tempo registrado para os filtros selecionados.",
+			"total": "Total",
+			"pageTotal": "Total nesta página",
+			"time": "Tempo",
+			"duration": "Duração"
+		},
+		"browse": {
+			"selectRange": "Selecionar intervalo",
+			"userSearch": "Buscar um usuário…"
+		},
+		"noProject": "Sem projeto"
+	},
+	"admin": {
+		"title": "Administração",
+		"labels": {
+			"users": "Usuários",
+			"tasks": "Tarefas"
+		},
+		"overview": {
+			"shares": "Compartilhamentos",
+			"linkSharesShort": "link",
+			"teamSharesShort": "equipe",
+			"userSharesShort": "usuário",
+			"version": "Versão",
+			"license": "Licença",
+			"licenseValidUntil": "Válida até",
+			"licenseExpiresIn": "em {days} dias",
+			"licenseLastVerified": "Última verificação",
+			"licenseNever": "nunca",
+			"licenseLastCheckFailed": "a última verificação falhou",
+			"licenseFeatures": "Recursos",
+			"licenseInstance": "ID da instalação",
+			"licenseManage": "Gerenciar"
+		},
+		"searchUsersPlaceholder": "Buscar por nome de usuário ou e-mail…",
+		"users": {
+			"status": "Situação",
+			"details": "Detalhes",
+			"detailsTitle": "Usuário: {username}",
+			"issuer": "Emissor",
+			"issuerLocal": "Local",
+			"issuerUrl": "URL do emissor",
+			"subject": "Identificador do usuário no provedor",
+			"statusActive": "Ativo",
+			"statusEmailConfirmation": "Confirmação de e-mail necessária",
+			"statusDisabled": "Desativado",
+			"statusLocked": "Conta bloqueada",
+			"isAdminLabel": "Administrador",
+			"addUser": "Adicionar usuário",
+			"createTitle": "Criar usuário",
+			"nameLabel": "Nome",
+			"skipEmailConfirm": "Dispensar confirmação de e-mail",
+			"createSubmit": "Criar usuário",
+			"saveButton": "Salvar alterações",
+			"newPasswordLabel": "Nova senha",
+			"setPassword": "Definir senha",
+			"setPasswordSuccess": "A senha de {username} foi atualizada.",
+			"sendResetEmail": "Enviar e-mail de redefinição de senha",
+			"sendResetEmailSuccess": "Um e-mail de redefinição de senha foi enviado para {username}.",
+			"createdSuccess": "Usuário {username} criado.",
+			"updatedSuccess": "Usuário {username} atualizado.",
+			"deletedSuccess": "Usuário {username} excluído.",
+			"deleteScheduledSuccess": "O usuário {username} receberá um e-mail de confirmação para agendar a exclusão.",
+			"confirmDeleteTitle": "Excluir usuário?",
+			"confirmDeleteIntro": "Como o usuário {username} deve ser excluído?",
+			"deleteModeScheduled": "Agendar exclusão",
+			"deleteModeScheduledHelp": "O agendamento envia um e-mail de confirmação ao usuário, seguindo o mesmo processo de uma exclusão solicitada por ele.",
+			"deleteModeNow": "Excluir agora",
+			"deleteModeNowHelp": "Excluir agora remove imediatamente o usuário e todos os seus dados. Esta ação não pode ser desfeita."
+		},
+		"projects": {
+			"ownerLabel": "Proprietário",
+			"reassignOwner": "Alterar proprietário",
+			"reassignTitle": "Alterar proprietário de {title}",
+			"reassignedSuccess": "O proprietário do projeto foi alterado.",
+			"newOwnerLabel": "Novo proprietário",
+			"searchPlaceholder": "Buscar projetos…",
+			"filterByOwner": "Filtrar por proprietário",
+			"hideDefaultProjects": "Ocultar projetos padrão"
+		},
+		"inviteLinks": {
+			"title": "Links de convite",
+			"create": "Criar link de convite",
+			"name": "Nome do link",
+			"teams": "Equipes das quais participar",
+			"maxUses": "Limite de usos",
+			"unlimited": "Ilimitado",
+			"uses": "Usos",
+			"expiresAt": "Expira em",
+			"neverExpires": "Nunca expira",
+			"createdBy": "Criado por",
+			"skipEmailConfirm": "Dispensar confirmação de e-mail",
+			"shownOnce": "Este link é exibido apenas uma vez. Copie-o antes de fechar esta janela.",
+			"url": "Link de convite",
+			"copy": "Copiar link",
+			"copied": "Link copiado",
+			"delete": "Excluir link de convite",
+			"deleteConfirm": "Excluir “{name}”? Não será mais possível se cadastrar por este link. As contas existentes continuarão ativas.",
+			"deleted": "O link de convite foi excluído.",
+			"empty": "Ainda não há links de convite. Crie um link para convidar pessoas para esta instalação.",
+			"futureExpiry": "Escolha uma data de validade futura.",
+			"creatorDeleted": "Usuário excluído"
+		}
+	},
+	"trash": {
+		"restoreSuccess": "A tarefa foi restaurada.",
+		"deleteForeverSuccess": "A tarefa foi excluída permanentemente.",
+		"emptySuccess": "A lixeira foi esvaziada.",
+		"title": "Lixeira",
+		"restore": "Restaurar",
+		"deleteForever": "Excluir permanentemente",
+		"empty": "Esvaziar lixeira",
+		"noTasks": "Não há tarefas na lixeira.",
+		"deletedBy": "Excluída por {user} {since}",
+		"deleted": "Excluída {since}",
+		"daysLeft": "Exclusão permanente hoje | Exclusão permanente em {count} dia | Exclusão permanente em {count} dias",
+		"deleteForeverModal": {
+			"header": "Excluir esta tarefa permanentemente",
+			"text": "Exclui permanentemente \"{task}\" com seus comentários, anexos, lembretes e relações. Os registros de tempo permanecem no projeto. Esta ação não pode ser desfeita."
+		},
+		"emptyModal": {
+			"text": "Não há tarefas que você possa excluir. | Exclui permanentemente 1 tarefa. Esta ação não pode ser desfeita. | Exclui permanentemente {count} tarefas. Esta ação não pode ser desfeita.",
+			"byOthers": "1 delas foi movida para a lixeira por outra pessoa. | {count} delas foram movidas para a lixeira por outras pessoas.",
+			"includeOthers": "Excluir também as tarefas movidas para a lixeira por outras pessoas"
+		},
+		"open": "Abrir lixeira",
+		"taskInTrash": "Esta tarefa está na lixeira. Ela foi excluída {since}.",
+		"taskInTrashBy": "Esta tarefa está na lixeira. {user} a excluiu {since}.",
+		"taskInTrashTitle": "Tarefa na lixeira",
+		"inTrash": "Na lixeira",
+		"daysLeftShort": "exclusão permanente hoje | resta {count} dia | restam {count} dias",
+		"deletedByYou": "Excluída por você {since}",
+		"taskInTrashByYou": "Esta tarefa está na lixeira. Você a excluiu {since}.",
+		"tabs": {
+			"label": "Seções da lixeira"
+		},
+		"restoreProjectSuccess": "O projeto foi restaurado.",
+		"restoreParentProject": "Restaurar projeto superior",
+		"deleteProjectForeverSuccess": "O projeto foi excluído permanentemente.",
+		"noProjects": "Não há projetos na lixeira.",
+		"subProjects": "+{count} subprojeto | +{count} subprojetos",
+		"deleteProjectForeverModal": {
+			"header": "Excluir este projeto permanentemente",
+			"text": "Exclui permanentemente \"{project}\" com seus subprojetos, tarefas, visualizações e compartilhamentos. Os registros de tempo permanecem com quem os criou, sem projeto. Esta ação não pode ser desfeita."
+		},
+		"emptyProjectsModal": {
+			"text": "Não há projetos que você possa excluir. | Exclui permanentemente 1 projeto e todo o seu conteúdo. Esta ação não pode ser desfeita. | Exclui permanentemente {count} projetos e todo o seu conteúdo. Esta ação não pode ser desfeita.",
+			"byOthers": "1 deles foi movido para a lixeira por outra pessoa. | {count} deles foram movidos para a lixeira por outras pessoas.",
+			"includeOthers": "Excluir também os projetos movidos para a lixeira por outras pessoas"
+		},
+		"projectInTrash": "Este projeto está na lixeira. Ele foi excluído {since}.",
+		"projectInTrashBy": "Este projeto está na lixeira. {user} o excluiu {since}.",
+		"projectInTrashByYou": "Este projeto está na lixeira. Você o excluiu {since}."
 	}
 }

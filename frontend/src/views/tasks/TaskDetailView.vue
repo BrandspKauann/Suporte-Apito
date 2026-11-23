@@ -51,7 +51,7 @@
 			/>
 			<nav
 				v-if="project?.id"
-				aria-label="Breadcrumb"
+				:aria-label="$t('navigation.breadcrumb')"
 				class="subtitle"
 			>
 				<template

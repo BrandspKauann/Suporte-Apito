@@ -241,7 +241,7 @@ function uploadCallback(files: File[] | FileList): Promise<string[]> {
 		})
 		const [uploaded] = result.success ?? []
 		// forwarded verbatim: the editor's toast translates the error code, which a rewrapped message would lose
-		if (uploaded?.id === undefined) throw result.errors?.[0] ?? new Error('Attachment upload returned no file')
+		if (uploaded?.id === undefined) throw result.errors?.[0] ?? new Error(t('task.attachment.uploadFailed'))
 		return generateAttachmentUrl(taskId, uploaded.id)
 	}))
 }

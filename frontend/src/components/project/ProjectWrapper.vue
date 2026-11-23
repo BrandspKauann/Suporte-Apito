@@ -1,6 +1,7 @@
 <template>
 	<div
 		class="loader-container"
+		:aria-busy="isLoadingProject || undefined"
 		:class="{
 			'is-loading': isLoadingProject,
 			'is-archived': currentProject.is_archived,

@@ -22,6 +22,7 @@
 				<div
 					:class="{ 'is-loading': showInitialLoading, 'is-dragging': drag || dragBucket }"
 					class="kanban kanban-bucket-container loader-container"
+					:aria-busy="showInitialLoading || undefined"
 				>
 					<BucketDraggable
 						v-bind="DRAG_OPTIONS"
@@ -902,25 +903,51 @@ $ease-out: all .3s cubic-bezier(0.23, 1, 0.32, 1);
 $bucket-width: 300px;
 $bucket-header-height: 60px;
 $bucket-right-margin: 1rem;
-$crazy-height-calculation: '100vh - 4.5rem - 1.5rem - 1rem - 1.5rem - 11px';
-$crazy-height-calculation-tasks: '#{$crazy-height-calculation} - 1rem - 2.5rem - 2rem - #{$button-height} - 1rem';
-$filter-container-height: '1rem - #{$switch-view-height}';
+
+.project-kanban {
+	--kanban-viewport-height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	block-size: calc(var(--kanban-viewport-height) - #{$navbar-height} - 1.5rem - max(1rem, env(safe-area-inset-bottom)));
+	min-block-size: 20rem;
+
+	@supports (block-size: 100dvh) {
+		--kanban-viewport-height: 100dvh;
+	}
+
+	> .switch-view-container {
+		flex-shrink: 0;
+	}
+
+	.kanban-view {
+		flex: 1;
+		min-block-size: 0;
+	}
+}
 
 .kanban {
+	--kanban-bucket-width: #{$bucket-width};
+
 	overflow-x: auto;
 	overflow-y: hidden;
-	block-size: calc(#{$crazy-height-calculation});
+	overscroll-behavior-inline: contain;
+	block-size: 100%;
 	margin: 0 -1.5rem;
 	padding: 0 1.5rem;
+	scroll-padding-inline: 1.5rem;
 
 	&:focus, .bucket .tasks:focus {
 		box-shadow: none;
 	}
 
 	@media screen and (max-width: $tablet) {
-		block-size: calc(#{$crazy-height-calculation} - #{$filter-container-height} + 9px);
-		scroll-snap-type: x mandatory;
+		--kanban-bucket-width: min(#{$bucket-width}, calc(100vw - 3rem));
+
+		scroll-snap-type: x proximity;
 		margin: 0 -0.5rem;
+		padding-inline: .75rem;
+		scroll-padding-inline: .75rem;
 
 		// Snapping undoes sortable's small auto-scroll steps, so the board never scrolls while dragging.
 		&.is-dragging {
@@ -960,7 +987,8 @@ $filter-container-height: '1rem - #{$switch-view-height}';
 		margin: 0 $bucket-right-margin 0 0;
 		max-block-size: calc(100% - 1rem); // 1rem spacing to the bottom
 		min-block-size: 20px;
-		inline-size: $bucket-width;
+		inline-size: var(--kanban-bucket-width);
+		flex-shrink: 0;
 		display: flex;
 		flex-direction: column;
 		overflow: hidden; // Make sure the edges are always rounded
@@ -972,6 +1000,9 @@ $filter-container-height: '1rem - #{$switch-view-height}';
 		.tasks {
 			overflow: hidden auto;
 			block-size: 100%;
+			min-block-size: 0;
+			overscroll-behavior-block: contain;
+			scrollbar-gutter: stable;
 			list-style: none;
 		}
 
@@ -1014,7 +1045,7 @@ $filter-container-height: '1rem - #{$switch-view-height}';
 			// To make it still look like it has some, we modify the container to have a padding of 1rem,
 			// which is the same as the margin it should have. Then we make the container itself bigger
 			// to hide the fact we just made the button smaller.
-			min-inline-size: calc(#{$bucket-width} + 1rem);
+			min-inline-size: calc(var(--kanban-bucket-width) + 1rem);
 			background: transparent;
 
 			.button {
@@ -1028,7 +1059,7 @@ $filter-container-height: '1rem - #{$switch-view-height}';
 			transform: rotate(90deg) translateY(-100%);
 			transform-origin: top left;
 			// Using negative margins instead of translateY here to make all other buckets fill the empty space
-			margin-inline-end: calc((#{$bucket-width} - #{$bucket-header-height} - #{$bucket-right-margin}) * -1);
+			margin-inline-end: calc((var(--kanban-bucket-width) - #{$bucket-header-height} - #{$bucket-right-margin}) * -1);
 			cursor: pointer;
 
 			.tasks, .bucket-footer {
@@ -1044,6 +1075,7 @@ $filter-container-height: '1rem - #{$switch-view-height}';
 		justify-content: space-between;
 		padding: .5rem;
 		block-size: $bucket-header-height;
+		flex-shrink: 0;
 
 		.icon.has-text-success {
 			cursor: pointer;
@@ -1061,13 +1093,25 @@ $filter-container-height: '1rem - #{$switch-view-height}';
 
 		.title.input {
 			block-size: auto;
+			min-inline-size: 0;
 			padding: .4rem .5rem;
 			display: inline-block;
 			cursor: pointer;
+			text-overflow: ellipsis;
+			overflow: hidden;
+
+			&:focus {
+				text-overflow: clip;
+			}
 		}
 	}
 
-	:deep(.dropdown-trigger) {
+	.bucket-header .dropdown-trigger {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-inline-size: 44px;
+		min-block-size: 44px;
 		padding: .5rem;
 	}
 
